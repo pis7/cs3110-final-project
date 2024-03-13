@@ -15,6 +15,8 @@
 
 (documentation https://url/to/documentation)
 
+(using menhir 3.0)
+
 (package
  (name final_project)
  (synopsis "A short synopsis")
