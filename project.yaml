@@ -1,0 +1,31 @@
+---
+# Members of your group.
+group:
+  - name: George Maidhof
+    netid: gpm58
+  - name: Parker Schless
+    netid: pis7
+  - name: Edward Liu
+    nedid: ejl248
+# Your PM.
+pm:
+  name: Xinhao Raymond He
+  netid: xh245
+# Set to false if you don't want your gallery entry to be public.
+publish: true
+# Pithy title
+title: "Ocaml Graphing Calculator"
+# OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
+git-repo: "https://github.coecis.cornell.edu/pis7/final_project"
+# If you have no demo screencast, replace the url string with an empty string ""
+demo-video-url: ""
+# Write a short, attention-grabbing description of your project.
+desc: >
+  Our project is an graphing calculator based off the familar Ti-84, which 
+  provides basic functionality for common math utilities including graphing and 
+  math expression evaluation. Math functions we support include but are not 
+  limited to arithmetic, probability, trigonometry, and fractional 
+  representation.
+
+  The interface will be a command line based utility with a menu system for 
+  navigating basic functionality, along with a help menu for proper usage. 
