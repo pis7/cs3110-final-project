@@ -8,14 +8,16 @@ let display_menu () =
   print_endline "";
   print_endline "";
   print_endline "Below are the current commands offered:";
-  print_endline "| plot: Plot a function you want! |";
+  print_endline "| plot: Plot a function you want |";
   print_endline
     "| eval: Basic calculations and operations offered by the calculator |";
   print_endline
     "| settings: Change certain features of the calculator when solving \
      problems |";
   print_endline
-    "| help: If you are not sure how to use any features, do --help |";
+    "| --help: If you are not sure how to use any features |";
+  print_endline
+    "| quit: Quit calculator program | ";
   print_endline "\nBegin:"
 
 let rec eval_expr ast = 
