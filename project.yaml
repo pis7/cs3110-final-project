@@ -18,14 +18,14 @@ title: "Ocaml Graphing Calculator"
 # OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
 git-repo: "https://github.coecis.cornell.edu/pis7/final_project"
 # If you have no demo screencast, replace the url string with an empty string ""
-demo-video-url: ""
+demo-video-url: "https://youtu.be/6bD6-9T_qkQ"
 # Write a short, attention-grabbing description of your project.
 desc: >
-  Our project is an graphing calculator based off the familar Ti-84, which 
-  provides basic functionality for common math utilities including graphing and 
+  Our project is a graphing calculator based off the familar TI-84, providing
+  basic functionality for common math utilities including graphing and 
   math expression evaluation. Math functions we support include but are not 
   limited to arithmetic, probability, trigonometry, and fractional 
   representation.
 
   The interface will be a command line based utility with a menu system for 
-  navigating basic functionality, along with a help menu for proper usage. 
+  navigation, along with a help menu to facilitate proper usage. 

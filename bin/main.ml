@@ -7,15 +7,15 @@ let display_menu () =
   print_endline "Welcome to the ArduinBro's Calculator!";
   print_endline "";
   print_endline "";
-  print_endline "Below are the current Modules offered:";
-  print_endline "| Plot: Plot a function you want! |";
+  print_endline "Below are the current commands offered:";
+  print_endline "| plot: Plot a function you want! |";
   print_endline
-    "| Eval: Basic calculations and operations offered by the calculator |";
+    "| eval: Basic calculations and operations offered by the calculator |";
   print_endline
-    "| Settings: Change certain features of the calculator when solving \
+    "| settings: Change certain features of the calculator when solving \
      problems |";
   print_endline
-    "| Help: If you are not sure how to use any features, do --help |";
+    "| help: If you are not sure how to use any features, do --help |";
   print_endline "\nBegin:"
 
 let rec eval_expr ast = 
