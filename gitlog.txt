@@ -1,3 +1,15 @@
+commit 92c1e7b4e6ae9dd7e68c22a3814e6369b2a94e7c
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Wed Mar 27 12:20:53 2024 -0400
+
+    Edit printout upon startup
+
+commit 763681c187fd862c773e33ebb2360205b74a9d49
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Tue Mar 26 22:43:58 2024 -0400
+
+    Add gitlog.txt
+
 commit 33e1a833250d766f0b662794ebe89c5cf11097b9
 Author: Parker Schless <pis7@cornell.edu>
 Date:   Tue Mar 26 22:39:34 2024 -0400
