@@ -1,0 +1,129 @@
+commit 33e1a833250d766f0b662794ebe89c5cf11097b9
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Tue Mar 26 22:39:34 2024 -0400
+
+    Fix INSTALL.md grammar issue
+
+commit 9adf5667130d7d4e8291917696a56804deda89c9
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Tue Mar 26 22:37:44 2024 -0400
+
+    Update yaml and add INSTALL.md
+    
+    - Gallery entry YouTube demo added for yaml
+    - INSTALL.md file written for run instructions
+    - Minor changes to text output for main program
+
+commit a21c516e84be1b7fb6f341272c1eac362cc1239c
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Tue Mar 26 12:13:43 2024 -0400
+
+    add yaml file
+
+commit 63526214e177873248f94f0e2d44bcdfaf31f9b9
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Mon Mar 25 03:21:20 2024 -0400
+
+    Add basic 4 function eval
+
+commit e356f771cbf8b77c237980fb653a697ff5ef98ea
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 20 13:47:25 2024 -0400
+
+    Added arithmetic test cases
+    
+    - added arithmetic test cases
+
+commit d3359871e6b52b49a8fe98718dee7d51bde28ff9
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 20 01:58:12 2024 -0400
+
+    Added additional arithmetic functions
+    
+    - float version of add, sub, div, mult
+    - other buttons functions on left side added
+    - pi and e constants added
+
+commit 595be1b8c6ae4a13757b3c3da5ab1768e02b3fae
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 20 01:19:39 2024 -0400
+
+    Covered Probability with unit tests
+    
+    - achieved 100% coverage in probability unit tests
+    - got bisect working
+
+commit 6af4117717c1e18249b2a4984aef7e9fd1dd6944
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 20 00:59:50 2024 -0400
+
+    Added Initial Testing Framework
+    
+    - Made unit tests work and added simple probability tests
+
+commit d5cbdd44c703530f110af0fc71d1d67b617149fd
+Author: George <gpm58@cornell.edu>
+Date:   Sun Mar 17 19:25:12 2024 -0400
+
+    Started Stuff on Main
+
+commit 68869d7bf0d289e46e8ad631592eeb2775a5a662
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 13 13:00:06 2024 -0400
+
+    Add interface for probability, add probability func
+    
+    - created interface file for probability
+    - fixed permutation, added combination
+    - made functions go from float arguments to floats
+
+commit 7b9515bb303cc92dd6892c6bbcfa5eb0ae29bfc8
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 13 00:48:03 2024 -0400
+
+    Add initial math functions
+    
+    - addded arithmetic + - / *
+    - added basic probability
+
+commit 145c8fd927c5df9c5325374bfd424cde484ce33c
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Tue Mar 12 23:31:54 2024 -0400
+
+    Add short lex/parse ex
+
+commit 50f08359addd0fa3da6e24c9397586f0f4d3648e
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Mar 6 14:39:20 2024 -0500
+
+    Remove nested folder for Final_Project
+
+commit e6080123c530c4a509b493478adeca5c7682d27b
+Author: ejl248 <ejl248@cornell.edu>
+Date:   Wed Feb 21 12:50:25 2024 -0500
+
+    add ejl
+
+commit 249e2bfd1ccc3eb3870253c8110b5cdcbcc9d0c4
+Author: gpm58 <gpm58@cornell.edu>
+Date:   Wed Feb 21 12:50:03 2024 -0500
+
+    Update README.txt
+
+commit 8b7255d3d4bf1e4934e59bbb6314e47bf8fb5ff5
+Author: Parker Schless <pis7@cornrell.edu>
+Date:   Wed Feb 21 12:49:38 2024 -0500
+
+    update readme
+
+commit c5b82f38862e9a4dfa12cd39fc21c3398adb1489
+Author: Parker Schless <pis7@cornrell.edu>
+Date:   Wed Feb 21 12:35:18 2024 -0500
+
+    ignore opam
+
+commit 896f8083af47485b1bbdb7c84bab157c39a8e356
+Author: Parker Schless <pis7@cornrell.edu>
+Date:   Wed Feb 21 12:34:48 2024 -0500
+
+    Initial commit
