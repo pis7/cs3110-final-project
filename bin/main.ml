@@ -31,14 +31,17 @@ let rec eval_expr ast =
   | Int i -> i
   | _ -> 0
 
+let eval_query (input : string) : string =
+  let lexbuf = Lexing.from_string input in
+  let ast = Final_project.Parser.prog Final_project.Lexer.read lexbuf in
+  string_of_int (eval_expr ast)
+
 let rec parse_string () =
   let _ = print_endline "Enter evaluation: " in
   let input = read_line () in
   if input = "quit" then ()
   else
-    let lexbuf = Lexing.from_string input in
-    let ast = Final_project.Parser.prog Final_project.Lexer.read lexbuf in
-    let _ = print_endline (string_of_int (eval_expr ast)) in
+    let _ = print_endline (eval_query input) in
     parse_string ()
 
 let plot_string () =
