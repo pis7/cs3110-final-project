@@ -91,10 +91,75 @@ let arithmetic_tests =
     );
   ]
 
+let trigonometry_tests =
+  [
+    ( "Sine pi" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.sin Float.pi) 0.0) );
+    ( "Sine pi/2" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.sin (Float.pi /. 2.)) 1.0) );
+    ( "Sine 0" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Trigonometry.sin 0.) 0.0)
+    );
+    ( "cos pi" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.cos Float.pi) ~-.1.0) );
+    ( "cos pi/2" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.cos (Float.pi /. 2.)) 0.0) );
+    ( "cos 0" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Trigonometry.cos 0.) 1.0)
+    );
+    ( "tan pi" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.tan Float.pi) 0.0) );
+    ( "tan pi/2" >:: fun _ ->
+      assert_equal true
+        (close_enough
+           (Final_project.Trigonometry.tan (Float.pi /. 2.))
+           (Float.tan (Float.pi /. 2.))) );
+    ( "tan 0" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Trigonometry.tan 0.) 0.0)
+    );
+    ( "arc Sine -1. -> -pi/2" >:: fun _ ->
+      assert_equal true
+        (close_enough
+           (Final_project.Trigonometry.asin ~-.1.0)
+           ~-.(Float.pi /. 2.)) );
+    ( "arc Sine 1. -> pi/2" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.asin 1.) (Float.pi /. 2.)) );
+    ( "arc Sine 0. -> 0" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Trigonometry.asin 0.) 0.0)
+    );
+    ( "arc cosine -1. -> pi" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.acos ~-.1.0) Float.pi) );
+    ( "arc cosine 1. -> 0" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Trigonometry.acos 1.) 0.)
+    );
+    ( "arc cosine 0. -> pi/2" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.acos 0.) (Float.pi /. 2.)) );
+    ( "arc tan -1. -> -pi/4" >:: fun _ ->
+      assert_equal true
+        (close_enough
+           (Final_project.Trigonometry.atan ~-.1.0)
+           ~-.(Float.pi /. 4.)) );
+    ( "arc tan 1. -> pi/4" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Trigonometry.atan 1.) (Float.pi /. 4.)) );
+    ( "arc tan 0. -> 0" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Trigonometry.atan 0.) 0.)
+    );
+  ]
+
 let tests = [ ("a trivial test" >:: fun _ -> assert_equal 0 0) ]
 
 let suite =
   "sort test suite"
-  >::: List.flatten [ probability_tests; arithmetic_tests; tests ]
+  >::: List.flatten
+         [ probability_tests; arithmetic_tests; trigonometry_tests; tests ]
 
 let _ = run_test_tt_main suite
