@@ -1,10 +1,11 @@
 (library
  (name final_project)
+ (libraries ANSITerminal)
  (instrumentation
   (backend bisect_ppx))
  (preprocess
   (pps ppx_inline_test)))
- 
+
 (menhir
  (modules parser))
 
