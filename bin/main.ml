@@ -101,10 +101,11 @@ let plot_string () =
 let rec process_input () =
   print_endline "Enter a command:";
   match read_line () with
-  | "quit" -> print_endline "Exiting calculator."
+  | "quit" -> ANSITerminal.(print_string [ red ] "Exiting calculator.\n")
   | "--help" ->
-      print_endline
-        "Enter the section you need help with (plot, eval, settings):";
+      ANSITerminal.(
+        print_string [ cyan ]
+          "Enter the section you need help with (plot, eval, settings):\n");
       let section = read_line () in
       help_menu section;
       process_input ()
