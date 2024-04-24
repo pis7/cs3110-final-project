@@ -10,16 +10,16 @@ val mult_i : int -> int -> int
 val div_i : int -> int -> int
 (** [div_i a b] is integer division [a] / [b]*)
 
-val add : float -> float -> float
+val add_f : float -> float -> float
 (** [add a b] is [a] added to [b] *)
 
-val sub : float -> float -> float
+val sub_f : float -> float -> float
 (** [sub a b] is [a] - [b] *)
 
-val mult : float -> float -> float
+val mult_f : float -> float -> float
 (** [mult a b] is [a] * [b]*)
 
-val div : float -> float -> float
+val div_f : float -> float -> float
 (** [div a b] is float division [a] / [b]*)
 
 val inverse : float -> float

@@ -18,18 +18,50 @@ let display_menu () =
   print_endline "| quit: Quit calculator program | ";
   print_endline "\nBegin:"
 
-let rec eval_expr ast =
-  match ast with
+let eval_float_binop bop e1 e2 =
+  match bop with
+  | Add -> Float (add_f e1 e2)
+  | Sub -> Float (sub_f e1 e2)
+  | Mult -> Float (mult_f e1 e2)
+  | Div -> Float (div_f e1 e2)
+  | _ -> failwith "not yet supported"
+
+let eval_int_binop bop e1 e2 =
+  match bop with
+  | Add -> Int (add_i e1 e2)
+  | Sub -> Int (sub_i e1 e2)
+  | Mult -> Int (mult_i e1 e2)
+  | Div -> Int (div_i e1 e2)
+  | _ -> failwith "not yet supported"
+
+let rec eval_expr = function
   | Binop (bop, e1, e2) -> begin
-      match bop with
-      | Add -> add_i (eval_expr e1) (eval_expr e2)
-      | Sub -> sub_i (eval_expr e1) (eval_expr e2)
-      | Mult -> mult_i (eval_expr e1) (eval_expr e2)
-      | Div -> div_i (eval_expr e1) (eval_expr e2)
-      | _ -> 0
+      (* Binop case *)
+      match (e1, e2) with
+      | Float e1', Int e2' -> eval_float_binop bop e1' (float_of_int e2')
+      (* Float and Int exprs *)
+      | Int e1', Float e2' -> eval_float_binop bop (float_of_int e1') e2'
+      (* Int and Float exprs *)
+      | Int e1', Int e2' -> eval_int_binop bop e1' e2'
+      (* Int and Int exprs *)
+      | Binop (bop', e1', e2'), en -> begin
+          (* Binop and _ exprs *)
+          let r_op_ans = eval_expr (Binop (bop', e1', e2')) in
+          eval_expr (Binop (bop, r_op_ans, en))
+        end
+      | en, Binop (bop', e1', e2') -> begin
+          (* _ and Binop exprs *)
+          let l_op_ans = eval_expr (Binop (bop', e1', e2')) in
+          eval_expr (Binop (bop, en, l_op_ans))
+        end
+      | _ -> failwith "not yet supported"
     end
-  | Int i -> i
-  | _ -> 0
+  | Unop (uop, e1) -> begin
+      match uop with
+      | Ln -> Float (ln (eval_expr e1))
+      | _ -> failwith "not yet supported"
+    end
+  | _ -> failwith "not yet supported"
 
 let rec parse_string () =
   let _ = print_endline "Enter evaluation: " in
@@ -38,8 +70,14 @@ let rec parse_string () =
   else
     let lexbuf = Lexing.from_string input in
     let ast = Final_project.Parser.prog Final_project.Lexer.read lexbuf in
-    let _ = print_endline (string_of_int (eval_expr ast)) in
-    parse_string ()
+    match eval_expr ast with
+    | Int i ->
+        print_endline (string_of_int i);
+        parse_string ()
+    | Float f ->
+        print_endline (string_of_float f);
+        parse_string ()
+    | _ -> failwith "not yet supported"
 
 let plot_string () =
   let _ = print_endline "Enter x label: " in
@@ -67,7 +105,8 @@ let plot_string () =
         let ast = Final_project.Parser.prog Final_project.Lexer.read lexbuf in
         match ast with
         | Int i -> float_of_int i
-        | _ -> float_of_int (eval_expr ast)
+        | Float f -> f
+        | _ -> failwith "e"
       with Final_project.Parser.Error -> float_of_string input
     in
     plinit ();

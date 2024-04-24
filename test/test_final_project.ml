@@ -43,19 +43,19 @@ let arithmetic_tests =
     );
     ( "add " >:: fun _ ->
       assert_equal 2.
-        (Final_project.Arithmetic.add 1. 1.)
+        (Final_project.Arithmetic.add_f 1. 1.)
         ~printer:string_of_float );
     ( "sub " >:: fun _ ->
       assert_equal 1.
-        (Final_project.Arithmetic.sub 2. 1.)
+        (Final_project.Arithmetic.sub_f 2. 1.)
         ~printer:string_of_float );
     ( "mult " >:: fun _ ->
       assert_equal 2.
-        (Final_project.Arithmetic.mult 2. 1.)
+        (Final_project.Arithmetic.mult_f 2. 1.)
         ~printer:string_of_float );
     ( "div " >:: fun _ ->
       assert_equal 2.
-        (Final_project.Arithmetic.div 4. 2.)
+        (Final_project.Arithmetic.div_f 4. 2.)
         ~printer:string_of_float );
     ( "inverse " >:: fun _ ->
       assert_equal 2.
