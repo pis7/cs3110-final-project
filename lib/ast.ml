@@ -17,6 +17,7 @@ type uop =
 
 type expr =
   | Var of string
+  | Const of string
   | Int of int
   | Float of float
   | Bool of bool

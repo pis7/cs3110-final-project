@@ -5,7 +5,9 @@ open Ast
 
 (* Declarations *)
 %token <int> INT
+%token <float> FLOAT
 %token <string> ID
+%token <string> CONST
 %token TRUE
 %token FALSE
 %token LEQ
@@ -50,7 +52,9 @@ prog:
   ;
 
 expr:
+  | c = CONST { Const c }
   | i = INT { Int i }
+  | f = FLOAT { Float f }
   | x = ID { Var x }
   | TRUE { Bool true }
   | FALSE { Bool false }

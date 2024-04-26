@@ -10,6 +10,7 @@ let int = '-'? digit+
 let float = '-'?digit*'.'digit*
 let letter = ['a'-'z' 'A'-'Z']
 let id = letter+
+let const = letter+letter*
 
 (* Rules *)
 rule read =
@@ -34,6 +35,8 @@ rule read =
   | "if" { IF }
   | "then" { THEN }
   | "else" { ELSE }
+  | const { CONST (Lexing.lexeme lexbuf) }
   | id { ID (Lexing.lexeme lexbuf) }
   | int { INT (int_of_string (Lexing.lexeme lexbuf)) }
+  | float { FLOAT (float_of_string (Lexing.lexeme lexbuf)) }
   | eof { EOF }
