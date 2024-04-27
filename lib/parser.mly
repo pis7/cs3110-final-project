@@ -26,6 +26,12 @@ open Ast
 %token EOF
 %token INV
 %token SQRT
+%token SIN
+%token COS
+%token TAN
+%token ASIN
+%token ACOS
+%token ATAN
 %token LOG
 %token LN
 
@@ -67,6 +73,12 @@ expr:
   | SQRT; e1 = expr {Unop (Sqrt, e1)}
   | LOG; e1 = expr {Unop (Log, e1)}
   | LN; e1 = expr {Unop (Ln, e1)}
+  | SIN; e1 = expr {Unop (Sin, e1)}
+  | COS; e1 = expr {Unop (Cos, e1)}
+  | TAN; e1 = expr {Unop (Tan, e1)}
+  | ASIN; e1 = expr {Unop (ASin, e1)}
+  | ACOS; e1 = expr {Unop (ACos, e1)}
+  | ATAN; e1 = expr {Unop (ATan, e1)}
   | LET; x = ID; EQUALS; e1 = expr; IN; e2 = expr { Let (x, e1, e2) }
   | IF; e1 = expr; THEN; e2 = expr; ELSE; e3 = expr { If (e1, e2, e3) }
   | LPAREN; e=expr; RPAREN {e}

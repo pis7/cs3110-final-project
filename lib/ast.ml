@@ -14,6 +14,12 @@ type uop =
   | Ln
   | TenX
   | Exp
+  | Sin
+  | Cos
+  | Tan
+  | ASin
+  | ACos
+  | ATan
 
 type expr =
   | Var of string

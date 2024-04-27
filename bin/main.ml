@@ -70,6 +70,12 @@ let eval_float_uop uop e1 =
   | Log -> Float (log e1)
   | TenX -> Float (ten_x e1)
   | Exp -> Float (exp e1)
+  | Sin -> Float (sin e1)
+  | Cos -> Float (cos e1)
+  | Tan -> Float (tan e1)
+  | ASin -> Float (asin e1)
+  | ACos -> Float (acos e1)
+  | ATan -> Float (atan e1)
   | _ -> failwith "Not yet supported"
 
 let eval_int_uop uop e1 =
@@ -79,6 +85,12 @@ let eval_int_uop uop e1 =
   | Log -> Int (int_of_float (log (float_of_int e1)))
   | TenX -> Int (int_of_float (ten_x (float_of_int e1)))
   | Exp -> Int (int_of_float (exp (float_of_int e1)))
+  | Sin -> Int (int_of_float (sin (float_of_int e1)))
+  | Cos -> Int (int_of_float (cos (float_of_int e1)))
+  | Tan -> Int (int_of_float (tan (float_of_int e1)))
+  | ASin -> Int (int_of_float (asin (float_of_int e1)))
+  | ACos -> Int (int_of_float (acos (float_of_int e1)))
+  | ATan -> Int (int_of_float (atan (float_of_int e1)))
   | _ -> failwith "Not yet supported"
 
 let rec eval_expr = function

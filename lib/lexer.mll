@@ -29,6 +29,12 @@ rule read =
   | "sqrt" { SQRT }
   | "log" { LOG }
   | "ln" { LN }
+  | "sin" { SIN }
+  | "cos" { COS }
+  | "tan" { TAN }
+  | "asin" { ASIN }
+  | "acos" { ACOS }
+  | "atan" { ATAN }
   | "let" { LET }
   | "=" { EQUALS }
   | "in" { IN }
