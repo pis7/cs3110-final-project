@@ -22,6 +22,8 @@ rule read =
   | "+" { PLUS }
   | "-" { MINUS }
   | "*" { TIMES }
+  | "perm" { PERM }
+  | "comb" { COMB }
   | "/" { DIVIDE }
   | "(" { LPAREN }
   | ")" { RPAREN }
@@ -35,6 +37,7 @@ rule read =
   | "asin" { ASIN }
   | "acos" { ACOS }
   | "atan" { ATAN }
+  | "fact" { FACT }
   | "let" { LET }
   | "=" { EQUALS }
   | "in" { IN }

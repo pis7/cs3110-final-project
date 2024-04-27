@@ -15,6 +15,8 @@ open Ast
 %token DIVIDE
 %token PLUS
 %token MINUS
+%token PERM
+%token COMB
 %token LPAREN
 %token RPAREN
 %token LET
@@ -34,6 +36,7 @@ open Ast
 %token ATAN
 %token LOG
 %token LN
+%token FACT
 
 %nonassoc IN
 %nonassoc ELSE
@@ -42,10 +45,19 @@ open Ast
 %left MINUS
 %left TIMES
 %left DIVIDE
+%left PERM
+%left COMB
 %left INV
 %left SQRT
+%left SIN
+%left COS
+%left TAN
+%left ASIN
+%left ACOS
+%left ATAN
 %left LOG
 %left LN
+%left FACT
 
 %start <Ast.expr> prog (* start with rule called prog which will return an AST.expr *)
 
@@ -69,6 +81,8 @@ expr:
   | e1 = expr; DIVIDE; e2 = expr { Binop (Div, e1, e2) }
   | e1 = expr; PLUS; e2 = expr { Binop (Add, e1, e2) }
   | e1 = expr; MINUS; e2 = expr { Binop (Sub, e1, e2) }
+  | PERM; e1 = expr; e2 = expr {Binop (Perm, e1, e2) }
+  | COMB; e1 = expr; e2 = expr {Binop (Comb, e1, e2) }
   | INV; e1 = expr {Unop (Inv, e1)}
   | SQRT; e1 = expr {Unop (Sqrt, e1)}
   | LOG; e1 = expr {Unop (Log, e1)}
@@ -79,6 +93,7 @@ expr:
   | ASIN; e1 = expr {Unop (ASin, e1)}
   | ACOS; e1 = expr {Unop (ACos, e1)}
   | ATAN; e1 = expr {Unop (ATan, e1)}
+  | FACT; e1 = expr {Unop (Fact, e1)}
   | LET; x = ID; EQUALS; e1 = expr; IN; e2 = expr { Let (x, e1, e2) }
   | IF; e1 = expr; THEN; e2 = expr; ELSE; e3 = expr { If (e1, e2, e3) }
   | LPAREN; e=expr; RPAREN {e}

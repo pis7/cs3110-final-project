@@ -1,6 +1,8 @@
 open Final_project.Help
 open Final_project.Ast
 open Final_project.Arithmetic
+open Final_project.Trigonometry
+open Final_project.Probability
 open Plplot
 
 let display_menu () =
@@ -53,6 +55,8 @@ let eval_float_binop bop e1 e2 =
   | Sub -> Float (sub_f e1 e2)
   | Mult -> Float (mult_f e1 e2)
   | Div -> Float (div_f e1 e2)
+  | Perm -> Float (permutation e1 e2)
+  | Comb -> Float (combination e1 e2)
   | _ -> failwith "not yet supported"
 
 let eval_int_binop bop e1 e2 =
@@ -61,6 +65,8 @@ let eval_int_binop bop e1 e2 =
   | Sub -> Int (sub_i e1 e2)
   | Mult -> Int (mult_i e1 e2)
   | Div -> Int (div_i e1 e2)
+  | Perm -> Int (int_of_float (permutation (float_of_int e1) (float_of_int e2)))
+  | Comb -> Int (int_of_float (combination (float_of_int e1) (float_of_int e2)))
   | _ -> failwith "not yet supported"
 
 let eval_float_uop uop e1 =
@@ -76,6 +82,7 @@ let eval_float_uop uop e1 =
   | ASin -> Float (asin e1)
   | ACos -> Float (acos e1)
   | ATan -> Float (atan e1)
+  | Fact -> Float (factorial e1)
   | _ -> failwith "Not yet supported"
 
 let eval_int_uop uop e1 =
@@ -91,6 +98,7 @@ let eval_int_uop uop e1 =
   | ASin -> Int (int_of_float (asin (float_of_int e1)))
   | ACos -> Int (int_of_float (acos (float_of_int e1)))
   | ATan -> Int (int_of_float (atan (float_of_int e1)))
+  | Fact -> Int (int_of_float (factorial (float_of_int e1)))
   | _ -> failwith "Not yet supported"
 
 let rec eval_expr = function

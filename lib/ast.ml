@@ -6,6 +6,8 @@ type bop =
   | Mult
   | Div
   | Leq
+  | Perm
+  | Comb
 
 type uop =
   | Inv
@@ -20,6 +22,7 @@ type uop =
   | ASin
   | ACos
   | ATan
+  | Fact
 
 type expr =
   | Var of string
