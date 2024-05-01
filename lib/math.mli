@@ -15,4 +15,5 @@ val cube_root : float -> float
 (** [cube_root x] is [x]^(1/3)*)
 
 val n_root : float -> float -> float
-(** [n_root n x] is [x]^(1/[n]) *)
+(** [n_root n x] is [x]^(1/[n]). At this time, negative [x] performance doesn't
+    work. As a result: Precondition: [x] is positive *)

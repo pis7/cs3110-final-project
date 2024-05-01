@@ -1,5 +1,6 @@
 val gcd : int -> int -> int
-(** [gcd a b] Greatest Common Denominator of [a] and [b]. *)
+(** [gcd a b] Greatest Common Denominator of [a] and [b]. Ill defined for
+    negative numbers*)
 
 val abs : float -> float
 (** [abs x] is the absolute value of [x]*)

@@ -155,11 +155,145 @@ let trigonometry_tests =
     );
   ]
 
+let math_tests =
+  [
+    ( "dec 0/denom = 0." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.dec (0, 10)) 0.) );
+    ( "dec 1,5 = 0.2" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.dec (1, 5)) 0.2) );
+    ( "dec -1, 9 = -.111111111111" >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Math.dec (~-1, 9)) (~-.1. /. 9.)) );
+    ( "cube 2. = 8." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.cube 2.) 8.) );
+    ( "cube ~-.2. = ~-.8." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.cube ~-.2.) ~-.8.) );
+    ( "cube 10. = 1000." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.cube 10.) 1000.) );
+    ( "cube_root 8. = 2." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.cube_root 8.) 2.) );
+    ( "cube_root ~-.8 = ~-.2." >:: fun _ ->
+      assert_equal true
+        (close_enough (Final_project.Math.cube_root ~-.8.) ~-.2.) );
+    ( "cube_root (cube 2.) = 2." >:: fun _ ->
+      assert_equal true
+        (let n = 2. in
+         close_enough
+           (Final_project.Math.cube_root (Final_project.Math.cube n))
+           n) );
+    ( "cube_root (cube ~-.2.) = ~-.2." >:: fun _ ->
+      assert_equal true
+        (let n = ~-.2. in
+         close_enough
+           (Final_project.Math.cube_root (Final_project.Math.cube n))
+           n) );
+    ( "cube_root (cube ~-.100.) = ~-.100." >:: fun _ ->
+      assert_equal true
+        (let n = ~-.100. in
+         close_enough
+           (Final_project.Math.cube_root (Final_project.Math.cube n))
+           n) );
+    ( "n_root 8. = 2." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Math.n_root 3. 8.) 2.) );
+    ( "frac 0.25 approx 0.25" >:: fun _ ->
+      assert_equal true
+        (let n = 0.25 in
+         let num, denom = Final_project.Math.frac n in
+         close_enough (float_of_int num /. float_of_int denom) n) );
+    ( "frac 1.25 approx 1.25" >:: fun _ ->
+      assert_equal true
+        (let n = 1.25 in
+         let num, denom = Final_project.Math.frac n in
+         close_enough (float_of_int num /. float_of_int denom) n) );
+    ( "frac 100 approx 100" >:: fun _ ->
+      assert_equal true
+        (let n = 100. in
+         let num, denom = Final_project.Math.frac n in
+         close_enough (float_of_int num /. float_of_int denom) n) );
+    ( "frac Float.pi approx Float.pi" >:: fun _ ->
+      assert_equal true
+        (let n = Float.pi in
+         let num, denom = Final_project.Math.frac n in
+         close_enough (float_of_int num /. float_of_int denom) n) );
+    ( "frac -0.5 approx -0.5" >:: fun _ ->
+      assert_equal true
+        (let n = ~-.0.5 in
+         let num, denom = Final_project.Math.frac n in
+         close_enough (float_of_int num /. float_of_int denom) n) );
+    ( "frac .1111111111 approx .1111111111" >:: fun _ ->
+      assert_equal true
+        (let n = 0.1111111111 in
+         let num, denom = Final_project.Math.frac n in
+         close_enough (float_of_int num /. float_of_int denom) n) );
+    ( "numerator and denominator of 0.25" >:: fun _ ->
+      assert_equal (1, 4) (Final_project.Math.frac 0.25) );
+    ( "numerator and denominator of 0.5" >:: fun _ ->
+      assert_equal (1, 2) (Final_project.Math.frac 0.5) );
+    ( "numerator and denominator of 0.75" >:: fun _ ->
+      assert_equal (3, 4) (Final_project.Math.frac 0.75) );
+    ( "numerator and denominator of 5.7" >:: fun _ ->
+      assert_equal (57, 10) (Final_project.Math.frac 5.7) );
+    ( "numerator and denominator of ~-.5.7" >:: fun _ ->
+      assert_equal (~-57, 10) (Final_project.Math.frac ~-.5.7) );
+  ]
+
+let num_tests =
+  [
+    ("gcd 5 10 = 5" >:: fun _ -> assert_equal 5 (Final_project.Num.gcd 5 10));
+    ("gcd 10 5 = 5" >:: fun _ -> assert_equal 5 (Final_project.Num.gcd 10 5));
+    ("gcd 17 13 = 1" >:: fun _ -> assert_equal 1 (Final_project.Num.gcd 17 13));
+    ("gcd 10 19 = 1" >:: fun _ -> assert_equal 1 (Final_project.Num.gcd 10 19));
+    ("gcd 18 30 = 6" >:: fun _ -> assert_equal 6 (Final_project.Num.gcd 18 30));
+    ( "abs (-x) = x" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.abs ~-.10.) 10.) );
+    ( "abs (x) = x" >:: fun _ ->
+      assert_equal true
+        (let x = 10. in
+         close_enough (Final_project.Num.abs x) x) );
+    ( "abs (0) = 0" >:: fun _ ->
+      assert_equal true
+        (let x = 0. in
+         close_enough (Final_project.Num.abs x) x) );
+    ( "round 0.5 = 1." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.round 0.5) 1.) );
+    ( "round 0.4 = 0." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.round 0.4) 0.) );
+    ( "round ~-.0.499 = 0." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.round ~-.0.499) 0.) );
+    ( "round ~-.0.6 = ~-.1." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.round ~-.0.6) ~-.1.) );
+    ( "round ~-.0.5 = ~-.1." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.round ~-.0.5) ~-.1.) );
+    ( "floor ~-.0.5 = ~-.1." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.floor ~-.0.5) ~-.1.) );
+    ( "floor 0.5 = 0." >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.floor 0.5) 0.) );
+    ( "remainder 3 / 4 = 3" >:: fun _ ->
+      let num, denom = (3, 4) in
+      let res = 3 in
+      assert_equal res (Final_project.Num.remainder num denom) );
+    ( "remainder 100 / 3 = 1" >:: fun _ ->
+      let num, denom = (100, 3) in
+      let res = 1 in
+      assert_equal res (Final_project.Num.remainder num denom) );
+    ( "remainder 123 / 18 = 15" >:: fun _ ->
+      let num, denom = (123, 18) in
+      let res = 15 in
+      assert_equal res (Final_project.Num.remainder num denom) );
+  ]
+
 let tests = [ ("a trivial test" >:: fun _ -> assert_equal 0 0) ]
 
 let suite =
   "sort test suite"
   >::: List.flatten
-         [ probability_tests; arithmetic_tests; trigonometry_tests; tests ]
+         [
+           probability_tests;
+           arithmetic_tests;
+           trigonometry_tests;
+           math_tests;
+           num_tests;
+           tests;
+         ]
 
 let _ = run_test_tt_main suite

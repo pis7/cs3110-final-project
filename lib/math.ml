@@ -9,12 +9,12 @@ let reduce_relatively_prime numerator denominator =
 
 
 let frac number =
-  reduce_relatively_prime (int_of_float (number *. 100.)) 100
+  let num, denom = reduce_relatively_prime (int_of_float (number *. 100000000.)) 100000000 in if denom < 0 then (~-num, ~-denom) else (num, denom)
 
 let dec (num, denom) = (num |> float_of_int) /.( denom |> float_of_int)
 
 let cube x = x ** 3.
 
-let n_root n x = x ** (1. /. n)
+let n_root n x = Float.pow x (1. /. n)
 
-let cube_root x = n_root 3. x
+let cube_root x = Float.cbrt x
