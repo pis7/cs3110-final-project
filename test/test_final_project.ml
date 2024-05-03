@@ -282,6 +282,28 @@ let num_tests =
       assert_equal res (Final_project.Num.remainder num denom) );
   ]
 
+let parser_tests =
+  [
+    ( "query add ints" >:: fun _ ->
+      assert_equal "2" (Final_project.Query.eval_query "1 + 1") );
+    ( "query add negative ints" >:: fun _ ->
+      assert_equal "-10" (Final_project.Query.eval_query "-11 + 1") );
+    ( "query add two negative ints" >:: fun _ ->
+      assert_equal "-12" (Final_project.Query.eval_query "-1 + -11") );
+    ( "query subtract ints" >:: fun _ ->
+      assert_equal "2" (Final_project.Query.eval_query "3 - 1") );
+    ( "query subtract negative ints" >:: fun _ ->
+      assert_equal "-12" (Final_project.Query.eval_query "-11 - 1") );
+    ( "query subtract two negative ints" >:: fun _ ->
+      assert_equal "10" (Final_project.Query.eval_query "-1 - -11") );
+    ( "query multiply ints" >:: fun _ ->
+      assert_equal "3" (Final_project.Query.eval_query "3 * 1") );
+    ( "query multiply negative ints" >:: fun _ ->
+      assert_equal "-22" (Final_project.Query.eval_query "-11 * 2") );
+    ( "query multiply two negativesints" >:: fun _ ->
+      assert_equal "11" (Final_project.Query.eval_query "-1 * -11") );
+  ]
+
 let tests = [ ("a trivial test" >:: fun _ -> assert_equal 0 0) ]
 
 let suite =
@@ -293,6 +315,7 @@ let suite =
            trigonometry_tests;
            math_tests;
            num_tests;
+           parser_tests;
            tests;
          ]
 
