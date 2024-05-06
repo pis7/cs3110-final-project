@@ -17,7 +17,7 @@ let eval_int_binop bop e1 e2 =
   | Add -> Int (add_i e1 e2)
   | Sub -> Int (sub_i e1 e2)
   | Mult -> Int (mult_i e1 e2)
-  | Div -> Int (div_i e1 e2)
+  | Div -> Float (div_f (e1 |> float_of_int) (e2 |> float_of_int))
   | Perm -> Int (int_of_float (permutation (float_of_int e1) (float_of_int e2)))
   | Comb -> Int (int_of_float (combination (float_of_int e1) (float_of_int e2)))
   | _ -> failwith "not yet supported"
