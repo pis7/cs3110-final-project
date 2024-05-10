@@ -24,11 +24,16 @@ rule read =
   | "*" { TIMES }
   | "perm" { PERM }
   | "comb" { COMB }
+  | "pow" { POW }
   | "/" { DIVIDE }
   | "(" { LPAREN }
   | ")" { RPAREN }
   | "inv" { INV }
+  | "square" { SQUARE }
+  | "cube" { CUBE }
   | "sqrt" { SQRT }
+  | "cubrt" { CUBRT }
+  | "nroot" { NROOT }
   | "log" { LOG }
   | "ln" { LN }
   | "sin" { SIN }
@@ -40,6 +45,8 @@ rule read =
   | "fact" { FACT }
   | "gcd" { GCD }
   | "abs" { ABS }
+  | "tenx" { TENX }
+  | "exp" { EXP }
   | "round" { ROUND }
   | "floor" { FLOOR }
   | "remainder" { REMAINDER }

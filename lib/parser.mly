@@ -27,7 +27,13 @@ open Ast
 %token ELSE
 %token EOF
 %token INV
+%token SQUARE
+%token CUBE
 %token SQRT
+%token CUBRT
+%token NROOT
+%token TENX
+%token EXP
 %token SIN
 %token COS
 %token TAN
@@ -42,6 +48,7 @@ open Ast
 %token ROUND
 %token FLOOR
 %token REMAINDER
+%token POW
 
 %nonassoc IN
 %nonassoc ELSE
@@ -53,7 +60,13 @@ open Ast
 %left PERM
 %left COMB
 %left INV
+%left SQUARE
+%left CUBE
 %left SQRT
+%left CUBRT
+%left NROOT
+%left TENX
+%left EXP
 %left SIN
 %left COS
 %left TAN
@@ -68,6 +81,7 @@ open Ast
 %left ROUND
 %left FLOOR
 %left REMAINDER
+%left POW
 
 %start <Ast.expr> prog (* start with rule called prog which will return an AST.expr *)
 
@@ -91,12 +105,19 @@ expr:
   | e1 = expr; DIVIDE; e2 = expr { Binop (Div, e1, e2) }
   | e1 = expr; PLUS; e2 = expr { Binop (Add, e1, e2) }
   | e1 = expr; MINUS; e2 = expr { Binop (Sub, e1, e2) }
+  | e1 = expr; POW; e2 = expr {Binop (Pow, e1, e2) }
+  | e1 = expr; NROOT; e2 = expr {Binop (Nroot, e1, e2) }
   | PERM; e1 = expr; e2 = expr {Binop (Perm, e1, e2) }
   | COMB; e1 = expr; e2 = expr {Binop (Comb, e1, e2) }
   | GCD; e1 = expr; e2 = expr { Binop (Gcd, e1, e2) }
   | REMAINDER; e1 = expr; e2 = expr { Binop (Remainder, e1, e2) }
   | INV; e1 = expr {Unop (Inv, e1) }
+  | SQUARE; e1 = expr {Unop (Square, e1) }
+  | CUBE; e1 = expr {Unop (Cube, e1) }
   | SQRT; e1 = expr {Unop (Sqrt, e1) }
+  | CUBRT; e1 = expr {Unop (Cubrt, e1) }
+  | TENX; e1 = expr {Unop (TenX, e1) }
+  | EXP; e1 = expr {Unop (Exp, e1) }
   | LOG; e1 = expr {Unop (Log, e1) }
   | LN; e1 = expr {Unop (Ln, e1) }
   | SIN; e1 = expr {Unop (Sin, e1) }

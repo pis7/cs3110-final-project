@@ -10,10 +10,15 @@ type bop =
   | Comb
   | Gcd
   | Remainder
+  | Pow
+  | Nroot
 
 type uop =
   | Inv
+  | Square
+  | Cube
   | Sqrt
+  | Cubrt
   | Log
   | Ln
   | TenX
