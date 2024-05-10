@@ -48,3 +48,6 @@ val pi : float
 
 val e : float
 (** [e] is 2.718... or e*)
+
+val pow : float -> float -> float
+(** [pow base exponent] is [base] ^ [exponent]*)

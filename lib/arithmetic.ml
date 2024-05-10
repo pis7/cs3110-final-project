@@ -15,3 +15,4 @@ let ln a = Float.log a
 let exp a = Float.exp a
 let pi = Float.pi
 let e = Float.exp 1.
+let pow base exponent = base ** exponent
