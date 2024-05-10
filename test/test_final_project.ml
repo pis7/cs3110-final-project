@@ -86,9 +86,12 @@ let arithmetic_tests =
     ( "pi " >:: fun _ ->
       assert_equal Float.pi Final_project.Arithmetic.pi ~printer:string_of_float
     );
-    ( "exp " >:: fun _ ->
+    ( "e " >:: fun _ ->
       assert_equal true (close_enough Final_project.Arithmetic.e 2.7182818285)
     );
+    ( "pow " >:: fun _ ->
+      assert_equal true
+        (close_enough Final_project.Arithmetic.(pow e 1.) 2.7182818285) );
   ]
 
 let trigonometry_tests =
@@ -332,6 +335,67 @@ let parser_tests =
       assert_equal "-11." (Final_project.Query.eval_query "-22. / 2") );
     ( "query divide two negatives floats" >:: fun _ ->
       assert_equal "11." (Final_project.Query.eval_query "-5.5 / -0.5") );
+    ( "query permute ints" >:: fun _ ->
+      assert_equal "12" (Final_project.Query.eval_query "perm 4 2") );
+    ( "query permute float and int" >:: fun _ ->
+      assert_equal "12." (Final_project.Query.eval_query "perm 4. 2") );
+    ( "query permute floats" >:: fun _ ->
+      assert_equal "12." (Final_project.Query.eval_query "perm 4. 2.") );
+    ( "query combination ints" >:: fun _ ->
+      assert_equal "6" (Final_project.Query.eval_query "comb 4 2") );
+    ( "query combination float and int" >:: fun _ ->
+      assert_equal "6." (Final_project.Query.eval_query "comb 4. 2") );
+    ( "query combination floats" >:: fun _ ->
+      assert_equal "6." (Final_project.Query.eval_query "comb 4. 2.") );
+    ( "query invert ints" >:: fun _ ->
+      assert_equal "0.5" (Final_project.Query.eval_query "inv 2") );
+    ( "query invert negative ints" >:: fun _ ->
+      assert_equal "-0.5" (Final_project.Query.eval_query "inv -2") );
+    ( "query invert floats" >:: fun _ ->
+      assert_equal "0.5" (Final_project.Query.eval_query "inv 2.") );
+    ( "query invert negative floats" >:: fun _ ->
+      assert_equal "-0.5" (Final_project.Query.eval_query "inv -2.") );
+    ( "query ln e" >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "ln e") );
+    ( "query log 10. float" >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "log 10.") );
+    ( "query log 10 int" >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "log 10") );
+    (* ( "query tenx 10. float" >:: fun _ -> assert_equal "1."
+       (Final_project.Query.eval_query "log 10.") ); ( "query tenx 10 int" >::
+       fun _ -> assert_equal "1" (Final_project.Query.eval_query "log 10") ); *)
+    ( "query sin 0 float" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "sin 0.") );
+    ( "query sin 0 int" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "sin 0") );
+    ( "query cos 0 float" >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "cos 0.") );
+    ( "query cos 0 int" >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "cos 0") );
+    ( "query tan 0. float" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "tan 0.") );
+    ( "query tan 0 int" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "tan 0") );
+    ( "query asin 0 float" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "asin 0.") );
+    ( "query asin 0 int" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "asin 0") );
+    ( "query acos 1. float" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "acos 1.") );
+    ( "query acos 1 int" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "acos 1") );
+    ( "query atan 0. float" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "atan 0.") );
+    ( "query atan 0 int" >:: fun _ ->
+      assert_equal "0." (Final_project.Query.eval_query "atan 0") );
+    ( "query fact 5 int" >:: fun _ ->
+      assert_equal "120" (Final_project.Query.eval_query "fact 5") );
+    ( "query fact 5. float" >:: fun _ ->
+      assert_equal "120." (Final_project.Query.eval_query "fact 5.") );
+    (* ( "query sqrt ints" >:: fun _ -> assert_equal "2"
+       (Final_project.Query.eval_query "sqrt 4") ); ( "query sqrt floats" >::
+       fun _ -> assert_equal "2" (Final_project.Query.eval_query "sqrt 4.")
+       ); *)
   ]
 
 let tests = [ ("a trivial test" >:: fun _ -> assert_equal 0 0) ]
