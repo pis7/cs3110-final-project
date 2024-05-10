@@ -8,6 +8,8 @@ type bop =
   | Leq
   | Perm
   | Comb
+  | Gcd
+  | Remainder
 
 type uop =
   | Inv
@@ -23,6 +25,9 @@ type uop =
   | ACos
   | ATan
   | Fact
+  | Abs
+  | Round
+  | Floor
 
 type expr =
   | Var of string

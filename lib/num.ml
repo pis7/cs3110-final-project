@@ -7,7 +7,8 @@ let rec gcd a b =
    4.1-4.2, accessed 1/31/24. To implement Euclidean's Algorithm by division
    from pseudo code*)
 
-let abs x = if x > 0. then x else ~-.x
+let abs_i x = if x > 0 then x else ~-x
+let abs_f x = if x > 0. then x else ~-.x
 let round x = Float.round x
 let floor x = Float.floor x
 let remainder n d = n mod d

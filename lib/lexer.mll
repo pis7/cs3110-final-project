@@ -38,6 +38,11 @@ rule read =
   | "acos" { ACOS }
   | "atan" { ATAN }
   | "fact" { FACT }
+  | "gcd" { GCD }
+  | "abs" { ABS }
+  | "round" { ROUND }
+  | "floor" { FLOOR }
+  | "remainder" { REMAINDER }
   | "let" { LET }
   | "=" { EQUALS }
   | "in" { IN }
