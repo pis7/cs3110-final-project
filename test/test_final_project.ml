@@ -328,11 +328,11 @@ let parser_tests =
     ( "query multiply two negatives floats" >:: fun _ ->
       assert_equal "16.5" (Final_project.Query.eval_query "-1.5 * -11.0") );
     ( "query divide ints" >:: fun _ ->
-      assert_equal "3." (Final_project.Query.eval_query "3 / 1") );
+      assert_equal "3" (Final_project.Query.eval_query "3 / 1") );
     ( "query divide negative ints" >:: fun _ ->
-      assert_equal "-11." (Final_project.Query.eval_query "-22 / 2") );
+      assert_equal "-11" (Final_project.Query.eval_query "-23 / 2") );
     ( "query divide two negatives ints" >:: fun _ ->
-      assert_equal "5.5" (Final_project.Query.eval_query "-11 / -2") );
+      assert_equal "5" (Final_project.Query.eval_query "-11 / -2") );
     ( "query divide floats" >:: fun _ ->
       assert_equal "2." (Final_project.Query.eval_query "3.2 / 1.6") );
     ( "query divide negative floats" >:: fun _ ->
@@ -351,6 +351,37 @@ let parser_tests =
       assert_equal "6." (Final_project.Query.eval_query "comb 4. 2") );
     ( "query combination floats" >:: fun _ ->
       assert_equal "6." (Final_project.Query.eval_query "comb 4. 2.") );
+    ( "query gcd ints" >:: fun _ ->
+      assert_equal "5" (Final_project.Query.eval_query "gcd 5 15") );
+    ( "query gcd ints" >:: fun _ ->
+      assert_equal "5" (Final_project.Query.eval_query "gcd 5 -15") );
+    ( "query gcd floats" >:: fun _ ->
+      assert_equal "5." (Final_project.Query.eval_query "gcd 5. 15.") );
+    ( "query gcd floats" >:: fun _ ->
+      assert_equal "5." (Final_project.Query.eval_query "gcd 5. -15.") );
+    ( "query remainder ints" >:: fun _ ->
+      assert_equal "3" (Final_project.Query.eval_query "remainder 7 4") );
+    ( "query remainder negative ints" >:: fun _ ->
+      assert_equal "-10" (Final_project.Query.eval_query "remainder -23 13") );
+    ( "query remainder floats" >:: fun _ ->
+      assert_equal "3." (Final_project.Query.eval_query "remainder 7.1 4.") );
+    ( "query remainder negative floats" >:: fun _ ->
+      assert_equal "-10." (Final_project.Query.eval_query "remainder -23.1 13")
+    );
+    (* ( "query pow ints" >:: fun _ -> assert_equal "16"
+       (Final_project.Query.eval_query "pow 2 4") ); ( "query pow negative ints"
+       >:: fun _ -> assert_equal "-32" (Final_project.Query.eval_query "pow -2
+       15") ); ( "query pow floats" >:: fun _ -> assert_equal "6.25"
+       (Final_project.Query.eval_query "pow 2.5 2.") ); ( "query pow negative
+       floats" >:: fun _ -> assert_equal "-27." (Final_project.Query.eval_query
+       "pow -3. 3") ); *)
+    (* ( "query nroot ints" >:: fun _ -> assert_equal "2"
+       (Final_project.Query.eval_query "nroot 8 3") ); ( "query nroot negative
+       ints" >:: fun _ -> assert_equal "-2" (Final_project.Query.eval_query
+       "nroot -8 3") ); ( "query nroot floats" >:: fun _ -> assert_equal "3."
+       (Final_project.Query.eval_query "nroot 27. 3.") ); ( "query nroot
+       negative floats" >:: fun _ -> assert_equal "-1."
+       (Final_project.Query.eval_query "nroot -1. 13") ); *)
     ( "query invert ints" >:: fun _ ->
       assert_equal "0.5" (Final_project.Query.eval_query "inv 2") );
     ( "query invert negative ints" >:: fun _ ->
@@ -365,9 +396,40 @@ let parser_tests =
       assert_equal "1." (Final_project.Query.eval_query "log 10.") );
     ( "query log 10 int" >:: fun _ ->
       assert_equal "1." (Final_project.Query.eval_query "log 10") );
-    (* ( "query tenx 10. float" >:: fun _ -> assert_equal "1."
-       (Final_project.Query.eval_query "log 10.") ); ( "query tenx 10 int" >::
-       fun _ -> assert_equal "1" (Final_project.Query.eval_query "log 10") ); *)
+    ( "query square ints" >:: fun _ ->
+      assert_equal "4" (Final_project.Query.eval_query "square 2") );
+    ( "query square negative ints" >:: fun _ ->
+      assert_equal "4" (Final_project.Query.eval_query "square -2") );
+    ( "query square floats" >:: fun _ ->
+      assert_equal "4." (Final_project.Query.eval_query "square 2.") );
+    ( "query square negative floats" >:: fun _ ->
+      assert_equal "4." (Final_project.Query.eval_query "square -2.") );
+    ( "query cube ints" >:: fun _ ->
+      assert_equal "8" (Final_project.Query.eval_query "cube 2") );
+    ( "query cube negative ints" >:: fun _ ->
+      assert_equal "-8" (Final_project.Query.eval_query "cube -2") );
+    ( "query cube floats" >:: fun _ ->
+      assert_equal "8." (Final_project.Query.eval_query "cube 2.") );
+    ( "query cube negative floats" >:: fun _ ->
+      assert_equal "-8." (Final_project.Query.eval_query "cube -2.") );
+    ( "query tenx 2. float" >:: fun _ ->
+      assert_equal "100." (Final_project.Query.eval_query "tenx 2.") );
+    ( "query tenx -1. float" >:: fun _ ->
+      assert_equal "0.1" (Final_project.Query.eval_query "tenx -1.") );
+    ( "query tenx 2 int" >:: fun _ ->
+      assert_equal "100." (Final_project.Query.eval_query "tenx 2") );
+    ( "query tenx 0 int" >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "tenx 0") );
+    ( "query sqrt ints" >:: fun _ ->
+      assert_equal "2." (Final_project.Query.eval_query "sqrt 4") );
+    ( "query sqrt floats" >:: fun _ ->
+      assert_equal "2." (Final_project.Query.eval_query "sqrt 4.") );
+    ( "query exp ints" >:: fun _ ->
+      assert_equal "2.71828182846" (Final_project.Query.eval_query "exp 1") );
+    ( "query exp floats" >:: fun _ ->
+      assert_equal "2.71828182846" (Final_project.Query.eval_query "exp 1.") );
+    ( "query exp 0 " >:: fun _ ->
+      assert_equal "1." (Final_project.Query.eval_query "exp 0") );
     ( "query sin 0 float" >:: fun _ ->
       assert_equal "0." (Final_project.Query.eval_query "sin 0.") );
     ( "query sin 0 int" >:: fun _ ->
@@ -396,10 +458,22 @@ let parser_tests =
       assert_equal "120" (Final_project.Query.eval_query "fact 5") );
     ( "query fact 5. float" >:: fun _ ->
       assert_equal "120." (Final_project.Query.eval_query "fact 5.") );
-    (* ( "query sqrt ints" >:: fun _ -> assert_equal "2"
-       (Final_project.Query.eval_query "sqrt 4") ); ( "query sqrt floats" >::
-       fun _ -> assert_equal "2" (Final_project.Query.eval_query "sqrt 4.")
-       ); *)
+    ( "query abs -5 int" >:: fun _ ->
+      assert_equal "5" (Final_project.Query.eval_query "abs -5") );
+    ( "query abs -5. float" >:: fun _ ->
+      assert_equal "5." (Final_project.Query.eval_query "abs -5.") );
+    ( "query round 5 int" >:: fun _ ->
+      assert_equal "5" (Final_project.Query.eval_query "round 5") );
+    ( "query round 5.51 float" >:: fun _ ->
+      assert_equal "6." (Final_project.Query.eval_query "round 5.51") );
+    ( "query round -5.51 float" >:: fun _ ->
+      assert_equal "-6." (Final_project.Query.eval_query "round -5.51") );
+    ( "query floor 5 int" >:: fun _ ->
+      assert_equal "5" (Final_project.Query.eval_query "floor 5") );
+    ( "query floor 5.51 float" >:: fun _ ->
+      assert_equal "5." (Final_project.Query.eval_query "floor 5.51") );
+    ( "query floor -5.51 float" >:: fun _ ->
+      assert_equal "-6." (Final_project.Query.eval_query "floor -5.51") );
   ]
 
 let tests = [ ("a trivial test" >:: fun _ -> assert_equal 0 0) ]
