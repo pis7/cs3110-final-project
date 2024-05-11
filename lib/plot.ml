@@ -45,27 +45,23 @@ let string_to_ast input =
   try Parser.prog Lexer.read lexbuf
   with Parser.Error -> failwith "Syntax error"
 
+let read_float_from_user prompt =
+  print_endline prompt;
+  float_of_string (read_line ())
+
+let read_string_from_user prompt =
+  print_endline prompt;
+  read_line ()
+
 let plot_string () =
-  let _ = print_endline "Enter x label: " in
-  let x_label = read_line () in
-  let _ = print_endline "Enter y label: " in
-  let y_label = read_line () in
-  let _ = print_endline "Enter plot title: " in
-  let title = read_line () in
-  let _ = print_endline "Enter lower x bound: " in
-  let xmin = float_of_string (read_line ()) in
-  let _ = print_endline "Enter upper x bound: " in
-  let xmax = float_of_string (read_line ()) in
-  let _ = print_endline "Enter lower y bound: " in
-  let ymin = float_of_string (read_line ()) in
-  let _ = print_endline "Enter upper y bound: " in
-  let ymax = float_of_string (read_line ()) in
-  let _ =
-    print_endline
-      "Enter function to plot (without the y=, \n\
-      \ use * between coefficient and variable): "
-  in
-  let input = read_line () in
+  let x_label = read_string_from_user "Enter x label: " in
+  let y_label = read_string_from_user "Enter y label: " in
+  let title = read_string_from_user "Enter plot title: " in
+  let xmin = read_float_from_user "Enter lower x bound: " in
+  let xmax = read_float_from_user "Enter upper x bound: " in
+  let ymin = read_float_from_user "Enter lower y bound: " in
+  let ymax = read_float_from_user "Enter upper y bound: " in
+  let input = read_string_from_user "Enter function to plot:" in
   if input = "quit" then ()
   else
     let ast = string_to_ast input in
