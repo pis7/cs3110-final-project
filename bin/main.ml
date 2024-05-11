@@ -26,7 +26,7 @@ let rec process_input () =
   | "--help" ->
       ANSITerminal.(
         print_string [ cyan ]
-          "Enter the section you need help with (plot, eval, settings):\n");
+          "Enter the section you need help with (plot, eval):\n");
       let section = read_line () in
       help_menu section;
       process_input ()
