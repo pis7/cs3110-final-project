@@ -1,4 +1,33 @@
-let plot_help () = print_endline "more to come"
+let plot_help () =
+  ANSITerminal.(
+    print_string [ blue ]
+      "-----------------------------------------------------------------------\n");
+  print_endline "The plot command supports the following operations:";
+  ANSITerminal.(
+    print_string [ green ]
+      "When prompted for: (x label, y label, plot title) input the values as a \
+       string. Example: Time, Temperature, ...\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "When prompted for: (lower x bound, upper x bound, lower y bound, upper \
+       y bound, and function to plot) input the values as a \
+       floats/ints/supported eval. Example: 1.2, 2, 2 + 4.3\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "Supported Evals Include: 'sin', 'cos', 'tan', '+', '-', '*', '/'\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "When prompted for: (Enter device number or keyword:) Choose the file \
+       you would like to output it as. Example: 8 (Note, this will output a \
+       pdf. Other options are displayed when on this part)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "When prompted for: (Enter graphics output file name:) Name the file you \
+       would like with its extension. Example: <name>.<extension you chose \
+       above>\n");
+  ANSITerminal.(
+    print_string [ blue ]
+      "-----------------------------------------------------------------------\n")
 
 let eval_help () =
   ANSITerminal.(
