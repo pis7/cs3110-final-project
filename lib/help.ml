@@ -6,19 +6,14 @@ let eval_help () =
   print_endline "Sub (Subtraction): Use '-' Example: 2 - 2";
   print_endline "Mult (Multiplication): Use '*' Example: 2 * 2";
   print_endline "Div (Division): Use '/' Example: 2 / 2";
-  print_endline "Leq (Less Than Or Equal To): Use '' Example: ";
+  (* print_endline "Leq (Less Than Or Equal To): Use '' Example: "; *)
   (*Find*)
-  print_endline "Perm (Permutation): Use '' Example:";
-  (*Find*)
-  print_endline "Comb (Combination): Use '' Example:";
-  (*Find*)
+  print_endline "Perm (Permutation): Use 'perm' Example: perm 4 2";
+  print_endline "Comb (Combination): Use 'comb' Example: comb 4 2";
   print_endline "Gcd (Greatest Common Divisor): Use 'gcd' Example: gcd 40 4";
-  print_endline "Remainder (Mod): Use '' Example: ";
-  (*Find*)
-  print_endline "Pow (Power): Use '' Example: ";
-  (*Find*)
-  print_endline "Nroot (N-th root): Use '' Example: ";
-  (*Find*)
+  print_endline "Remainder (Mod): Use 'remainder' Example: remainder 7 4";
+  print_endline "Pow (Power): Use 'pow' Example: pow 2 4";
+  print_endline "Nroot (N-th root): Use 'nroot' Example: nroot 8 3";
   print_endline "Inv (Inverse): Use 'inv' Example: inv(2)";
   print_endline "Square: Use 'square' Example: square(2)";
   print_endline "Cube: Use 'cube' Example: cube(2)";
@@ -27,8 +22,7 @@ let eval_help () =
   (*Find*)
   print_endline "Log (Logarithm Base 10): Use 'log' Example: log(100)";
   print_endline "Ln (Natural Logarithm): Use 'ln' Example: ln(e)";
-  print_endline "TenX (10 To The x): Use '' Example: ";
-  (*Find*)
+  print_endline "TenX (10 To The x): Use 'tenx' Example: tenx 2";
   print_endline "Exp (Exponential): Use 'exp' Example: exp(1)";
   print_endline "Sin: (Sine): Use 'sin' Example: sin(pi/2)";
   print_endline "Cos (Cosine): Use 'cos' Example: cos(pi/2)";
