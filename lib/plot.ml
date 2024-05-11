@@ -45,15 +45,19 @@ let string_to_ast input =
   try Parser.prog Lexer.read lexbuf
   with Parser.Error -> failwith "Syntax error"
 
-let read_float_from_user prompt =
+let rec read_float_from_user prompt =
   print_endline prompt;
-  float_of_string (read_line ())
+  let input = read_line () in
+  try float_of_string input
+  with Failure _ ->
+    print_endline "Invalid input. Please enter a float or int.";
+    read_float_from_user prompt
 
 let read_string_from_user prompt =
   print_endline prompt;
   read_line ()
 
-let plot_string () =
+let rec plot_string () =
   let x_label = read_string_from_user "Enter x label: " in
   let y_label = read_string_from_user "Enter y label: " in
   let title = read_string_from_user "Enter plot title: " in
@@ -64,20 +68,24 @@ let plot_string () =
   let input = read_string_from_user "Enter function to plot:" in
   if input = "quit" then ()
   else
-    let ast = string_to_ast input in
-    let f x_value =
-      let ast_with_x = substitute_x_in_expr x_value ast in
-      try eval_expr_to_float ast_with_x
-      with Parser.Error -> failwith "Parsing error"
-    in
-    plinit ();
-    plenv xmin xmax ymin ymax 0 0;
-    pllab x_label y_label title;
-    let x_values =
-      Array.init 100 (fun i ->
-          xmin +. ((xmax -. xmin) *. (float_of_int i /. 99.)))
-    in
-    let y_values = Array.map f x_values in
-    let y_values = Array.map (fun f -> f 0.0) y_values in
-    plline x_values y_values;
-    plend ()
+    try
+      let ast = string_to_ast input in
+      let f x_value =
+        let ast_with_x = substitute_x_in_expr x_value ast in
+        try eval_expr_to_float ast_with_x
+        with Parser.Error -> failwith "Parsing error"
+      in
+      plinit ();
+      plenv xmin xmax ymin ymax 0 0;
+      pllab x_label y_label title;
+      let x_values =
+        Array.init 100 (fun i ->
+            xmin +. ((xmax -. xmin) *. (float_of_int i /. 99.)))
+      in
+      let y_values = Array.map f x_values in
+      let y_values = Array.map (fun f -> f 0.0) y_values in
+      plline x_values y_values;
+      plend ()
+    with Failure _ ->
+      print_endline "Invalid function. Please enter a valid function.";
+      plot_string ()
