@@ -15,9 +15,9 @@ let rec fact_tr n acc =
 let factorial n = float_of_int (fact_tr (int_of_float n) 1)
 
 let permutation n r =
-  if n <= 0. || r <= 0. then failwith "Invalid Argument"
+  if n <= 0. || r <= 0. || n < r then failwith "Invalid Argument"
   else factorial n /. factorial (n -. r)
 
 let combination n r =
-  if n <= 0. || r <= 0. then failwith "Invalid Argument"
+  if n <= 0. || r <= 0. || n < r then failwith "Invalid Argument"
   else factorial n /. (factorial (n -. r) *. factorial r)
