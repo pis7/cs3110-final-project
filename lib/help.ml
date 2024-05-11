@@ -6,7 +6,7 @@ let eval_help () =
   print_endline "Sub (Subtraction): Use '-' Example: 2 - 2";
   print_endline "Mult (Multiplication): Use '*' Example: 2 * 2";
   print_endline "Div (Division): Use '/' Example: 2 / 2";
-  print_endline "Leq (Less Than Or Equal To): Use '<=' Example: ";
+  print_endline "Leq (Less Than Or Equal To): Use '' Example: ";
   (*Find*)
   print_endline "Perm (Permutation): Use '' Example:";
   (*Find*)
@@ -23,7 +23,7 @@ let eval_help () =
   print_endline "Square: Use 'square' Example: square(2)";
   print_endline "Cube: Use 'cube' Example: cube(2)";
   print_endline "Sqrt (Square root): Use 'sqrt' Example: sqrt(4)";
-  print_endline "Cubrt (Cube Root): Use 'cubrt' Example: ";
+  print_endline "Cubrt (Cube Root): Use '' Example: ";
   (*Find*)
   print_endline "Log (Logarithm Base 10): Use 'log' Example: log(100)";
   print_endline "Ln (Natural Logarithm): Use 'ln' Example: ln(e)";
@@ -36,7 +36,7 @@ let eval_help () =
   print_endline "ASin (Arcsine): Use 'asin' Example: asin(1)";
   print_endline "ACos (Arccosine): Use 'acos' Example: acos(1)";
   print_endline "ATan (Arctangent): Use 'atan' Example: atan(1)";
-  print_endline "Fact (Factorial): Use '!' Example: fact 5";
+  print_endline "Fact (Factorial): Use 'fact' Example: fact 5";
   print_endline "Abs (Absolute): Use 'abs' Example: abs(-2)";
   print_endline "Round: Use 'round' Example: round(2.5)";
   print_endline "Floor: Use 'floor' Example: floor(2.5)"
