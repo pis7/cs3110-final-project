@@ -35,8 +35,6 @@ let eval_help () =
   print_endline "Round: Use 'round' Example: round(2.5)";
   print_endline "Floor: Use 'floor' Example: floor(2.5)"
 
-let settings_help () = print_endline "more to come"
-
 let invalid_option () =
   ANSITerminal.(
     print_string [ red ] "Enter a valid option: <plot>, <eval>, <settings>\n")
@@ -45,5 +43,4 @@ let help_menu (section : string) =
   match section with
   | "plot" -> plot_help ()
   | "eval" -> eval_help ()
-  | "settings" -> settings_help ()
   | _ -> invalid_option ()
