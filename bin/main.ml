@@ -6,10 +6,18 @@ open Final_project.Plot
 let rec parse_string () =
   let _ = print_endline "Enter evaluation: " in
   let input = read_line () in
-  if input = "quit" then ()
-  else
-    let _ = print_endline (eval_query input) in
-    parse_string ()
+  try
+    begin
+      if input = "quit" then ()
+      else
+        let _ = print_endline (eval_query input) in
+        parse_string ()
+    end
+  with _ ->
+    begin
+      let _ = print_endline "\nInvalid expression!" in
+      parse_string ()
+    end
 
 let rec process_input () =
   print_endline "Enter a command:";

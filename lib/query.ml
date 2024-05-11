@@ -3,6 +3,7 @@ open Arithmetic
 open Trigonometry
 open Probability
 open Num
+open Math
 
 let eval_float_binop bop e1 e2 =
   match bop with
@@ -15,6 +16,8 @@ let eval_float_binop bop e1 e2 =
   | Gcd -> Float (float_of_int (gcd (int_of_float e1) (int_of_float e2)))
   | Remainder ->
       Float (float_of_int (remainder (int_of_float e1) (int_of_float e2)))
+  | Pow -> Float (pow e1 e2)
+  | Nroot -> Float (n_root e1 e2)
   | _ -> failwith "not yet supported"
 
 let eval_int_binop bop e1 e2 =
@@ -27,15 +30,12 @@ let eval_int_binop bop e1 e2 =
   | Comb -> Int (int_of_float (combination (float_of_int e1) (float_of_int e2)))
   | Gcd -> Int (gcd e1 e2)
   | Remainder -> Int (remainder e1 e2)
+  | Pow -> Int (int_of_float (pow (float_of_int e1) (float_of_int e2)))
+  | Nroot -> Int (int_of_float (n_root (float_of_int e1) (float_of_int e2)))
   | _ -> failwith "not yet supported"
 
-let eval_float_uop uop e1 =
+let eval_float_uop_2 uop e1 =
   match uop with
-  | Ln -> Float (ln e1)
-  | Inv -> Float (inverse e1)
-  | Log -> Float (log e1)
-  | TenX -> Float (ten_x e1)
-  | Exp -> Float (exp e1)
   | Sin -> Float (sin e1)
   | Cos -> Float (cos e1)
   | Tan -> Float (tan e1)
@@ -48,13 +48,20 @@ let eval_float_uop uop e1 =
   | Floor -> Float (floor e1)
   | _ -> failwith "Not yet supported"
 
-let eval_int_uop uop e1 =
+let eval_float_uop uop e1 =
   match uop with
-  | Ln -> Float (ln (float_of_int e1))
-  | Inv -> Float (inverse (float_of_int e1))
-  | Log -> Float (log (float_of_int e1))
-  | TenX -> Float (ten_x (float_of_int e1))
-  | Exp -> Float (exp (float_of_int e1))
+  | Ln -> Float (ln e1)
+  | Inv -> Float (inverse e1)
+  | Log -> Float (log e1)
+  | Square -> Float (square e1)
+  | Cube -> Float (cube e1)
+  | Sqrt -> Float (sqrt e1)
+  | TenX -> Float (ten_x e1)
+  | Exp -> Float (exp e1)
+  | _ -> eval_float_uop_2 uop e1
+
+let eval_int_uop_2 uop e1 =
+  match uop with
   | Sin -> Float (sin (float_of_int e1))
   | Cos -> Float (cos (float_of_int e1))
   | Tan -> Float (tan (float_of_int e1))
@@ -66,6 +73,18 @@ let eval_int_uop uop e1 =
   | Round -> Int (int_of_float (round (float_of_int e1)))
   | Floor -> Int (int_of_float (floor (float_of_int e1)))
   | _ -> failwith "Not yet supported"
+
+let eval_int_uop uop e1 =
+  match uop with
+  | Ln -> Float (ln (float_of_int e1))
+  | Inv -> Float (inverse (float_of_int e1))
+  | Log -> Float (log (float_of_int e1))
+  | Square -> Int (int_of_float (square (float_of_int e1)))
+  | Cube -> Int (int_of_float (cube (float_of_int e1)))
+  | Sqrt -> Float (sqrt (float_of_int e1))
+  | TenX -> Float (ten_x (float_of_int e1))
+  | Exp -> Float (exp (float_of_int e1))
+  | _ -> eval_int_uop_2 uop e1
 
 let rec eval_expr = function
   | Binop (bop, e1, e2) -> match_binop (bop, e1, e2)
