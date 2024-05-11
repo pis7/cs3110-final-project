@@ -247,16 +247,20 @@ let num_tests =
     ("gcd 17 13 = 1" >:: fun _ -> assert_equal 1 (Final_project.Num.gcd 17 13));
     ("gcd 10 19 = 1" >:: fun _ -> assert_equal 1 (Final_project.Num.gcd 10 19));
     ("gcd 18 30 = 6" >:: fun _ -> assert_equal 6 (Final_project.Num.gcd 18 30));
-    ( "abs (-x) = x" >:: fun _ ->
-      assert_equal true (close_enough (Final_project.Num.abs ~-.10.) 10.) );
-    ( "abs (x) = x" >:: fun _ ->
+    ( "abs (-x) = x int" >:: fun _ ->
+      assert_equal (Final_project.Num.abs_i ~-10) 10 );
+    ("abs (x) = x int" >:: fun _ -> assert_equal (Final_project.Num.abs_i 10) 10);
+    ("abs (0) = 0 int" >:: fun _ -> assert_equal (Final_project.Num.abs_i 0) 0);
+    ( "abs (-x) = x float" >:: fun _ ->
+      assert_equal true (close_enough (Final_project.Num.abs_f ~-.10.) 10.) );
+    ( "abs (x) = x float" >:: fun _ ->
       assert_equal true
         (let x = 10. in
-         close_enough (Final_project.Num.abs x) x) );
-    ( "abs (0) = 0" >:: fun _ ->
+         close_enough (Final_project.Num.abs_f x) x) );
+    ( "abs (0) = 0 float" >:: fun _ ->
       assert_equal true
         (let x = 0. in
-         close_enough (Final_project.Num.abs x) x) );
+         close_enough (Final_project.Num.abs_f x) x) );
     ( "round 0.5 = 1." >:: fun _ ->
       assert_equal true (close_enough (Final_project.Num.round 0.5) 1.) );
     ( "round 0.4 = 0." >:: fun _ ->
