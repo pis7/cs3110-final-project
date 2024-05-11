@@ -8,16 +8,16 @@ let eval_help () =
   print_endline "Div (Division): Use '/' Example: 2 / 2";
   print_endline "Leq (Less Than Or Equal To): Use '<=' Example: ";
   (*Find*)
-  print_endline "Perm (Permutation): Use 'P' Example:";
+  print_endline "Perm (Permutation): Use '' Example:";
   (*Find*)
-  print_endline "Comb (Combination): Use 'C' Example:";
+  print_endline "Comb (Combination): Use '' Example:";
   (*Find*)
   print_endline "Gcd (Greatest Common Divisor): Use 'gcd' Example: gcd 40 4";
-  print_endline "Remainder (Mod): Use '%' Example: ";
+  print_endline "Remainder (Mod): Use '' Example: ";
   (*Find*)
-  print_endline "Pow (Power): Use '^' Example: ";
+  print_endline "Pow (Power): Use '' Example: ";
   (*Find*)
-  print_endline "Nroot (N-th root): Use 'root' Example: ";
+  print_endline "Nroot (N-th root): Use '' Example: ";
   (*Find*)
   print_endline "Inv (Inverse): Use 'inv' Example: inv(2)";
   print_endline "Square: Use 'square' Example: square(2)";
@@ -27,7 +27,7 @@ let eval_help () =
   (*Find*)
   print_endline "Log (Logarithm Base 10): Use 'log' Example: log(100)";
   print_endline "Ln (Natural Logarithm): Use 'ln' Example: ln(e)";
-  print_endline "TenX (10 To The x): Use 'tenX' Example: ";
+  print_endline "TenX (10 To The x): Use '' Example: ";
   (*Find*)
   print_endline "Exp (Exponential): Use 'exp' Example: exp(1)";
   print_endline "Sin: (Sine): Use 'sin' Example: sin(pi/2)";
