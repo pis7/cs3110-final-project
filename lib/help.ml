@@ -1,9 +1,14 @@
+let plot_help () = print_endline "more to come"
+let eval_help () = print_endline "more to come"
+let settings_help () = print_endline "more to come"
+
+let invalid_option () =
+  ANSITerminal.(
+    print_string [ red ] "Enter a valid option: <plot>, <eval>, <settings>\n")
+
 let help_menu (section : string) =
   match section with
-  | "plot" -> print_endline "more to come"
-  | "eval" -> print_endline "more to come"
-  | "settings" -> print_endline "more to come"
-  | _ ->
-      ANSITerminal.(
-        print_string [ red ]
-          "Enter a valid option: <plot>, <eval>, <settings>\n")
+  | "plot" -> plot_help ()
+  | "eval" -> eval_help ()
+  | "settings" -> settings_help ()
+  | _ -> invalid_option ()
