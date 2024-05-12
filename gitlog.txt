@@ -1,3 +1,362 @@
+commit 2306e354a67b74594170547a8bb98d78c585e1f7
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Sun May 12 16:13:34 2024 -0400
+
+    Add loc document
+
+commit 1323e4a7a2c74d82055555a453d9f3b66bd7b953
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Sun May 12 16:12:23 2024 -0400
+
+    Remove Template test case
+
+commit 1603c418e768e752595562219eac5fcad7365252
+Merge: 406c555 6be8624
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Sun May 12 14:37:27 2024 -0400
+
+    Merge branch 'main' of https://github.coecis.cornell.edu/pis7/final_project into main
+
+commit 406c55539e927909a4ede044747ed3a80c33bfa5
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Sun May 12 14:37:14 2024 -0400
+
+    Added author attribution to main
+
+commit 6be86248b9230bb7c9c99e7f61a1bdc4a1b7cbe0
+Author: pis7 <pis7@cornell.edu>
+Date:   Sun May 12 12:56:55 2024 -0400
+
+    Remove plot test files
+
+commit 99ee5317b1bd455e15439b19be45a6021679baa2
+Author: George <gpm58@cornell.edu>
+Date:   Sun May 12 01:08:19 2024 -0400
+
+    Small change to help
+
+commit eee5ffb2f68b8ed413d882f69ba907f5ecf409a4
+Author: George <gpm58@cornell.edu>
+Date:   Sat May 11 23:23:29 2024 -0400
+
+    HUGE PLOT STUFF
+
+commit d151279531f29e5ab0b702a30d54c8a9b71bdd16
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Sat May 11 21:48:53 2024 -0400
+
+    Made unit test template
+    
+    - Made tests list for template for unit tests for organization
+
+commit b2819fe3e8cb3b314e2f2db636ffd2a207d7bc59
+Author: pis7 <pis7@cornell.edu>
+Date:   Sat May 11 20:52:00 2024 -0400
+
+    Fix Parser function problems
+    
+    - Add support for converting final evaluation to fraction
+    - Clean up UI
+
+commit 44b228e16e43759059b64bd13d8d85cf683804ed
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Sat May 11 15:27:01 2024 -0400
+
+    Make mli file for Help functions
+    
+    - mli file exposing help_menu created
+
+commit aef5fe7b3c9c00bf5498145f4f52d90f3571dc04
+Author: George <gpm58@cornell.edu>
+Date:   Sat May 11 09:11:22 2024 -0400
+
+    Help Pushedgit add . !
+
+commit 37fdceaa5cf5a37c4f04a23fc95fa27ffbe3cbcd
+Author: George <gpm58@cornell.edu>
+Date:   Sat May 11 08:35:54 2024 -0400
+
+    Help menu Looking Clean
+
+commit 5521962ab65a7f99b1373d48fc66307581c6d396
+Author: George <gpm58@cornell.edu>
+Date:   Sat May 11 07:57:41 2024 -0400
+
+    Fixed plotting crashing
+
+commit 99abcb2a3625a2ba841a83b6dc589408dffd5c0e
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 23:46:28 2024 -0400
+
+    No Settings removed
+
+commit 7ffe026b19250032ecc3507a6b1fdf1a3d91321a
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 23:35:37 2024 -0400
+
+    Added help for command and example usage
+    
+    - Added help for the command to use and example usage
+
+commit ff5bfcef035d933e7956174fb6d47fc2422190fc
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 23:30:18 2024 -0400
+
+    Added check to permutation and combination
+    
+    - Perm and comb will fail when n < r
+
+commit 81e70105779252e1b5b0b7be513325f23555a9b9
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 23:26:40 2024 -0400
+
+    Push
+
+commit 526d8f860a42e156e7ecb0ff59ea0a88cae266d4
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 23:20:39 2024 -0400
+
+    Push again
+
+commit 01fa30818bfd322656b7c6f74cc488b19da0f677
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 23:18:32 2024 -0400
+
+    More help stuff
+
+commit 43d9c82b1fd9126c9e4f8a899aa36c56b6413979
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 23:17:30 2024 -0400
+
+    Help Menu with Eval
+
+commit 60869c3dc9348853ca4fd0757abbe771d2a18a7a
+Merge: 4717c18 db6f4bb
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 23:13:01 2024 -0400
+
+    Merge branch 'main' of https://github.coecis.cornell.edu/pis7/final_project into main
+
+commit 4717c18f07158ff299c0fca7d690610ce9c0e831
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 23:12:30 2024 -0400
+
+    Add test cases
+    
+    - Added test cases for gcd, remainder, pow, nroot, abs, round, and floor
+
+commit db6f4bbc4d420b5ad8a470ad8c87461f0ccd5327
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 22:58:12 2024 -0400
+
+    Split Help Menu Into Diff Functions
+
+commit a1d0857e1dde6d357b7ad989e6e8f622131bd4ee
+Author: George <gpm58@cornell.edu>
+Date:   Fri May 10 22:55:10 2024 -0400
+
+    Shrank plot
+
+commit 290b3aad69b7e9a50bbe083b2c2bfa94b7d4f1a3
+Merge: 65c9423 ba2252d
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 20:11:39 2024 -0400
+
+    Merge branch 'main' of https://github.coecis.cornell.edu/pis7/final_project into main
+
+commit 65c942368ef47ccfbb90f5f044a7c1c22930de17
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 20:11:03 2024 -0400
+
+    Corrected abs in test cases to i and f versions
+    
+    - Test cases for absolute value use correct version of abs
+
+commit ba2252d67d99746d127510ccbf9cb00772fc62fd
+Author: pis7 <pis7@cornell.edu>
+Date:   Fri May 10 19:23:10 2024 -0400
+
+    Add more parser functions
+    
+    - Improve robustness against invalid expressions
+
+commit 5cc04dfc447c328959bbb544ade4d7393e761da5
+Merge: cb3cc8b 6eaba1f
+Author: pis7 <pis7@cornell.edu>
+Date:   Fri May 10 18:43:21 2024 -0400
+
+    Merge branch 'main' of github.coecis.cornell.edu:pis7/final_project
+
+commit cb3cc8b77f6ae3fc37045028fe35321dc09379a5
+Author: pis7 <pis7@cornell.edu>
+Date:   Fri May 10 18:42:46 2024 -0400
+
+    Refactor functions
+    
+    - Separate out functions into smaller ones
+    - Add parser functionality for num functions
+
+commit 6eaba1f0d75cff91c8a595a80415afb1be744bb7
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 18:30:57 2024 -0400
+
+    Made comb and perm check for negative arguements
+    
+    - Comb and perm check if n or r are negative instead of infinite looping
+
+commit 27dba8f33f8b6771c35fad86932b2d8921e767ba
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 18:30:19 2024 -0400
+
+    Changed int uops to return floats
+    
+    - Changed int uops to return floats for relevant functions
+
+commit ca9b334d5e8c571c567ddac8c23f5ebe91c5308a
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 18:28:53 2024 -0400
+
+    Add test cases for rest of currently supported functions
+    
+    - Added for perm, comb, ln, inv, log, sin, cos, tan, asin, acos, atan, and fact
+
+commit 99723b1578770641cce8e845c08580783a5d35af
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 10 17:46:30 2024 -0400
+
+    add pow function
+
+commit 7695b4a681169a2fa016804ca214eff64b257ded
+Author: pis7 <pis7@cornell.edu>
+Date:   Thu May 9 04:07:10 2024 -0400
+
+    Separate parser evaluations from main into ml/mli
+
+commit 20884500e03be2e267973452d196ba0a8124cb18
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Mon May 6 14:47:59 2024 -0400
+
+    More float and division tests
+    
+    - Added more test cases for float and division
+
+commit f74585fd5dab3edb748131a51635fbb651e512e2
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Fri May 3 19:06:44 2024 -0400
+
+    Add some parser test cases
+
+commit 486d22bf69b4eaba9c9ac8c0657f49a233be8bbc
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed May 1 00:42:44 2024 -0400
+
+    Added test cases for math and num
+    
+    - corrected function implementations
+    - added test case coverage for math and num
+    - missing test case coverage for min and max
+
+commit bf85d190db071d6ef52b362200c27ced488f027e
+Author: George <gpm58@cornell.edu>
+Date:   Tue Apr 30 14:15:05 2024 -0400
+
+    Please check if right, weird stuff  going on
+
+commit 4fd5c8a5bd37683964c0aa56f5f54223a69c17b3
+Merge: 22d9266 9544cc7
+Author: George <gpm58@cornell.edu>
+Date:   Tue Apr 30 13:52:22 2024 -0400
+
+    Merge remote-tracking branch 'refs/remotes/origin/main'
+
+commit 22d92666020e60d449eba58b8c3a0796bbe3f895
+Author: George <gpm58@cornell.edu>
+Date:   Tue Apr 30 13:51:59 2024 -0400
+
+    Graphing changes: Supports Floats, Sin, Cos, Tan
+
+commit 9544cc7458f150cb7b22b1b8b0333cb69d7ef683
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Tue Apr 30 12:42:13 2024 -0400
+
+    add math and numbers, seperate queries into ml file
+
+commit 883e71a5ec51df84db438dad95e1df66aa46c3d3
+Author: pis7 <pis7@cornell.edu>
+Date:   Sat Apr 27 04:09:24 2024 -0400
+
+    Add probability parsing support
+
+commit 44dfacc54f56117dfefd09a982cac141d0b2c121
+Author: pis7 <pis7@cornell.edu>
+Date:   Sat Apr 27 03:57:09 2024 -0400
+
+    Add trigonometry parsing support
+
+commit 5a36fe62d718685686e03e9cf03e49e15ca6487a
+Author: pis7 <pis7@cornell.edu>
+Date:   Fri Apr 26 04:31:06 2024 -0400
+
+    Build out parser
+    
+    - Float support
+    - Unop support
+    - Const support
+
+commit 8886828500d452bf7669aa8e56d933d6e338f045
+Merge: 2b362ef d5f092e
+Author: pis7 <pis7@cornell.edu>
+Date:   Wed Apr 24 12:52:54 2024 -0400
+
+    Merge branch 'main' of github.coecis.cornell.edu:pis7/final_project
+
+commit 2b362efc87090e4c67d264b0a60718de05cd6880
+Author: pis7 <pis7@cornell.edu>
+Date:   Wed Apr 24 12:49:28 2024 -0400
+
+    Implement WIP parsing features
+
+commit d5f092ed278e500e3c5e2bf0b58e9567204a3709
+Author: George <gpm58@cornell.edu>
+Date:   Wed Apr 24 03:24:33 2024 -0400
+
+    More Color : )
+
+commit 75c777d262b2cd4fa5da33e71d27d21e13865c61
+Author: George <gpm58@cornell.edu>
+Date:   Wed Apr 24 03:12:26 2024 -0400
+
+    Plotting with PlPlot (Using Sin/Cos) + ANSITerminal Design : )
+
+commit fc8599fcb89489fff72deafce5a0681eef4d2ce5
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Wed Apr 17 12:23:16 2024 -0400
+
+    Seperate query evaluation from parse_string
+    
+    - Seperated query evaluation for easier testing
+
+commit 9c3bd25f653ad0ead050a9be5577673d06f68203
+Author: Edward Liu <ejl248@cornell.edu>
+Date:   Tue Apr 16 22:54:54 2024 -0400
+
+    Add basic trig functions
+    
+    - Added basic trig functions (sin, cos, tan, and arc versions)
+    - added tests for trig functions
+
+commit 4f033b9656c0dcb87a7d20de2e76c84ebf4d378d
+Author: George <gpm58@cornell.edu>
+Date:   Tue Apr 16 15:09:53 2024 -0400
+
+    Basic Graphing
+
+commit b9e9add88cbcac61d50a3c6c0592312b104c0762
+Author: Parker Schless <pis7@cornell.edu>
+Date:   Wed Mar 27 12:21:19 2024 -0400
+
+    Update gitlog
+
 commit 92c1e7b4e6ae9dd7e68c22a3814e6369b2a94e7c
 Author: Parker Schless <pis7@cornell.edu>
 Date:   Wed Mar 27 12:20:53 2024 -0400

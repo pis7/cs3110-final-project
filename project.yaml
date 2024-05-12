@@ -18,7 +18,7 @@ title: "Ocaml Graphing Calculator"
 # OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
 git-repo: "https://github.coecis.cornell.edu/pis7/final_project"
 # If you have no demo screencast, replace the url string with an empty string ""
-demo-video-url: "https://youtu.be/6bD6-9T_qkQ"
+demo-video-url: "https://www.youtube.com/watch?v=Nq8YgopBwmY"
 # Write a short, attention-grabbing description of your project.
 desc: >
   Our project is a graphing calculator based off the familar TI-84, providing
