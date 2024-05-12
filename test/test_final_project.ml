@@ -478,7 +478,7 @@ let parser_tests =
       assert_equal "-6" (Final_project.Query.eval_query "floor -5.51") );
   ]
 
-let tests = [ ("a trivial test" >:: fun _ -> assert_equal 0 0) ]
+let tests = [ ("template for tests" >:: fun _ -> assert_equal 0 0) ]
 
 let suite =
   "sort test suite"
