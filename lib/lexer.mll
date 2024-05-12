@@ -16,6 +16,7 @@ let const = letter+letter*
 rule read =
   parse
   | white { read lexbuf }
+  | "x" { ID "x" }
   | "frac" { FRAC }
   | "true" { TRUE }
   | "false" { FALSE }
