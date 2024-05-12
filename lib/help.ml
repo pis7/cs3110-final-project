@@ -14,7 +14,10 @@ let plot_help () =
        floats/ints/supported eval. Example: 1.2, 2, 2 + 4.3\n");
   ANSITerminal.(
     print_string [ green ]
-      "Supported Evals Include: 'sin', 'cos', 'tan', '+', '-', '*', '/'\n");
+      "Supported Evals Include: 'x (a variable)' 'sin', 'cos', 'tan', '+', \
+       '-', '*', '/'. If you use sin, cos or tan, you have to input the value \
+       or variable 'x' as: sin(x) or sin (x) or sin x. The same with the \
+       others. \n");
   ANSITerminal.(
     print_string [ green ]
       "When prompted for: (Enter device number or keyword:) Choose the file \
