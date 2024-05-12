@@ -50,4 +50,5 @@ val e : float
 (** [e] is 2.718... or e*)
 
 val pow : float -> float -> float
-(** [pow base exponent] is [base] ^ [exponent]*)
+(** [pow base exponent] is [base] ^ [exponent]. Undefined if negative [base] and
+    fractional [exponent] *)

@@ -33,65 +33,98 @@ let eval_help () =
   ANSITerminal.(
     print_string [ blue ]
       "-----------------------------------------------------------------------\n");
-  print_endline "The eval command supports the following operations:";
+  print_endline "The eval command supports the following operations:\n";
   ANSITerminal.(
-    print_string [ green ] "Add (Addition): Use '+' Example: 2 + 2\n");
-  ANSITerminal.(
-    print_string [ green ] "Sub (Subtraction): Use '-' Example: 2 - 2\n");
-  ANSITerminal.(
-    print_string [ green ] "Mult (Multiplication): Use '*' Example: 2 * 2\n");
-  ANSITerminal.(
-    print_string [ green ] "Div (Division): Use '/' Example: 2 / 2\n");
-  ANSITerminal.(
-    print_string [ green ] "Perm (Permutation): Use 'perm' Example: perm 4 2\n");
-  ANSITerminal.(
-    print_string [ green ] "Comb (Combination): Use 'comb' Example: comb 4 2\n");
+    print_string [ red ]
+      "NOTE: If the result can be represented as an integer without losing \
+       information,\n\
+       it will be displayed as an integer. Otherwise, it will be displayed as \
+       a float.\n\n");
   ANSITerminal.(
     print_string [ green ]
-      "Gcd (Greatest Common Divisor): Use 'gcd' Example: gcd 40 4\n");
+      "-> Frac (Fraction): Use frac (expr)' Example: frac (2 + 2)\n\
+       \tNote that the parentheses are required and frac can only be used on the\n\
+       \tleftmost side of the full evaluation expression to print the final\n\
+       \tresult as a fraction\n");
+  ANSITerminal.(
+    print_string [ green ] "-> Add (Addition): Use 'n1 + n2' Example: 2 + 2\n");
   ANSITerminal.(
     print_string [ green ]
-      "Remainder (Mod): Use 'remainder' Example: remainder 7 4\n");
-  ANSITerminal.(
-    print_string [ green ] "Pow (Power): Use 'pow' Example: pow 2 4\n");
-  ANSITerminal.(
-    print_string [ green ] "Nroot (N-th root): Use 'nroot' Example: nroot 8 3\n");
-  ANSITerminal.(
-    print_string [ green ] "Inv (Inverse): Use 'inv' Example: inv(2)\n");
-  ANSITerminal.(
-    print_string [ green ] "Square: Use 'square' Example: square(2)\n");
-  ANSITerminal.(print_string [ green ] "Cube: Use 'cube' Example: cube(2)\n");
-  ANSITerminal.(
-    print_string [ green ] "Sqrt (Square root): Use 'sqrt' Example: sqrt(4)\n");
+      "-> Sub (Subtraction): Use 'n1 - n2' Example: 2 - 2\n");
   ANSITerminal.(
     print_string [ green ]
-      "Log (Logarithm Base 10): Use 'log' Example: log(100)\n");
+      "-> Mult (Multiplication): Use 'n1 * n2' Example: 2 * 2\n");
   ANSITerminal.(
-    print_string [ green ] "Ln (Natural Logarithm): Use 'ln' Example: ln(e)\n");
+    print_string [ green ] "-> Div (Division): Use 'n1 / n2' Example: 2 / 2\n");
   ANSITerminal.(
-    print_string [ green ] "TenX (10 To The x): Use 'tenx' Example: tenx 2\n");
+    print_string [ green ]
+      "-> Perm (Permutation): Use 'perm' Example: perm 4 2\n");
   ANSITerminal.(
-    print_string [ green ] "Exp (Exponential): Use 'exp' Example: exp(1)\n");
+    print_string [ green ]
+      "-> Comb (Combination): Use 'comb' Example: comb 4 2\n");
   ANSITerminal.(
-    print_string [ green ] "Sin: (Sine): Use 'sin' Example: sin(pi/2)\n");
+    print_string [ green ]
+      "-> Gcd (Greatest Common Divisor): Use 'gcd n1 n2' Example: gcd 40 4\n");
   ANSITerminal.(
-    print_string [ green ] "Cos (Cosine): Use 'cos' Example: cos(pi/2)\n");
+    print_string [ green ]
+      "-> Remainder (Mod): Use 'remainder num denom' Example: remainder 7 4\n");
   ANSITerminal.(
-    print_string [ green ] "Tan (Tangent): Use 'tan' Example: tan(pi/4)\n");
+    print_string [ green ]
+      "-> Pow (Power): Use 'pow base exponent' Example: pow 2 4\n\
+       \tBase cannot be negative when exponent is fractional\n");
   ANSITerminal.(
-    print_string [ green ] "ASin (Arcsine): Use 'asin' Example: asin(1)\n");
+    print_string [ green ]
+      "-> Nroot (N-th root): Use 'nroot base root' Example: nroot 8 3\n\
+       \tBase must be nonnegative\n");
   ANSITerminal.(
-    print_string [ green ] "ACos (Arccosine): Use 'acos' Example: acos(1)\n");
+    print_string [ green ] "-> Inv (Inverse): Use 'inv num' Example: inv 2\n");
   ANSITerminal.(
-    print_string [ green ] "ATan (Arctangent): Use 'atan' Example: atan(1)\n");
+    print_string [ green ] "-> Square: Use 'square num' Example: square 2\n");
+  ANSITerminal.(print_string [ green ] "-> Cube: Use 'cube' Example: cube 2\n");
   ANSITerminal.(
-    print_string [ green ] "Fact (Factorial): Use 'fact' Example: fact 5\n");
+    print_string [ green ]
+      "-> Sqrt (Square root): Use 'sqrt num' Example: sqrt 4\n");
   ANSITerminal.(
-    print_string [ green ] "Abs (Absolute): Use 'abs' Example: abs(-2)\n");
+    print_string [ green ]
+      "-> Cubrt (Cube root): Use 'cubrt num' Example: cubrt 8\n");
   ANSITerminal.(
-    print_string [ green ] "Round: Use 'round' Example: round(2.5)\n");
+    print_string [ green ]
+      "-> Log (Logarithm Base 10): Use 'log num' Example: log 100\n");
   ANSITerminal.(
-    print_string [ green ] "Floor: Use 'floor' Example: floor(2.5)\n");
+    print_string [ green ]
+      "-> Ln (Natural Logarithm): Use 'ln num' Example: ln e\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> TenX (10 To The x): Use 'tenx num' Example: tenx 2\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> Exp (Exponential): Use 'exp num' Example: exp 1\n");
+  ANSITerminal.(
+    print_string [ green ] "-> Sin: (Sine): Use 'sin num' Example: sin (pi/2)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> Cos (Cosine): Use 'cos num' Example: cos (pi/2)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> Tan (Tangent): Use 'tan num' Example: tan (pi/4)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> ASin (Arcsine): Use 'asin num' Example: asin (1)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> ACos (Arccosine): Use 'acos num' Example: acos (1)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> ATan (Arctangent): Use 'atan num' Example: atan (1)\n");
+  ANSITerminal.(
+    print_string [ green ]
+      "-> Fact (Factorial): Use 'fact num' Example: fact 5\n");
+  ANSITerminal.(
+    print_string [ green ] "-> Abs (Absolute): Use 'abs num' Example: abs -2\n");
+  ANSITerminal.(
+    print_string [ green ] "-> Round: Use 'round num' Example: round 2.5\n");
+  ANSITerminal.(
+    print_string [ green ] "-> Floor: Use 'floor num' Example: floor 2.5\n");
   ANSITerminal.(
     print_string [ blue ]
       "-----------------------------------------------------------------------\n")

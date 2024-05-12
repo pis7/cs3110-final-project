@@ -5,86 +5,51 @@ open Probability
 open Num
 open Math
 
+let int_or_float res =
+  if float_of_int (int_of_float res) <> res then Float res
+  else Int (int_of_float res)
+
 let eval_float_binop bop e1 e2 =
   match bop with
-  | Add -> Float (add_f e1 e2)
-  | Sub -> Float (sub_f e1 e2)
-  | Mult -> Float (mult_f e1 e2)
-  | Div -> Float (div_f e1 e2)
-  | Perm -> Float (permutation e1 e2)
-  | Comb -> Float (combination e1 e2)
-  | Gcd -> Float (float_of_int (gcd (int_of_float e1) (int_of_float e2)))
+  | Add -> int_or_float (add_f e1 e2)
+  | Sub -> int_or_float (sub_f e1 e2)
+  | Mult -> int_or_float (mult_f e1 e2)
+  | Div -> int_or_float (div_f e1 e2)
+  | Perm -> int_or_float (permutation e1 e2)
+  | Comb -> int_or_float (combination e1 e2)
+  | Gcd -> int_or_float (float_of_int (gcd (int_of_float e1) (int_of_float e2)))
   | Remainder ->
-      Float (float_of_int (remainder (int_of_float e1) (int_of_float e2)))
-  | Pow -> Float (pow e1 e2)
-  | Nroot -> Float (n_root e1 e2)
-  | _ -> failwith "not yet supported"
-
-let eval_int_binop bop e1 e2 =
-  match bop with
-  | Add -> Int (add_i e1 e2)
-  | Sub -> Int (sub_i e1 e2)
-  | Mult -> Int (mult_i e1 e2)
-  | Div -> Int (div_i e1 e2)
-  | Perm -> Int (int_of_float (permutation (float_of_int e1) (float_of_int e2)))
-  | Comb -> Int (int_of_float (combination (float_of_int e1) (float_of_int e2)))
-  | Gcd -> Int (gcd e1 e2)
-  | Remainder -> Int (remainder e1 e2)
-  | Pow -> Int (int_of_float (pow (float_of_int e1) (float_of_int e2)))
-  | Nroot -> Int (int_of_float (n_root (float_of_int e1) (float_of_int e2)))
-  | _ -> failwith "not yet supported"
+      int_or_float
+        (float_of_int (remainder (int_of_float e1) (int_of_float e2)))
+  | Pow -> int_or_float (pow e1 e2)
+  | Nroot -> int_or_float (n_root e1 e2)
 
 let eval_float_uop_2 uop e1 =
   match uop with
-  | Sin -> Float (sin e1)
-  | Cos -> Float (cos e1)
-  | Tan -> Float (tan e1)
-  | ASin -> Float (asin e1)
-  | ACos -> Float (acos e1)
-  | ATan -> Float (atan e1)
-  | Fact -> Float (factorial e1)
-  | Abs -> Float (abs_f e1)
-  | Round -> Float (round e1)
-  | Floor -> Float (floor e1)
+  | Sin -> int_or_float (sin e1)
+  | Cos -> int_or_float (cos e1)
+  | Tan -> int_or_float (tan e1)
+  | ASin -> int_or_float (asin e1)
+  | ACos -> int_or_float (acos e1)
+  | ATan -> int_or_float (atan e1)
+  | Fact -> int_or_float (factorial e1)
+  | Abs -> int_or_float (abs_f e1)
+  | Round -> int_or_float (round e1)
+  | Floor -> int_or_float (floor e1)
   | _ -> failwith "Not yet supported"
 
 let eval_float_uop uop e1 =
   match uop with
-  | Ln -> Float (ln e1)
-  | Inv -> Float (inverse e1)
-  | Log -> Float (log e1)
-  | Square -> Float (square e1)
-  | Cube -> Float (cube e1)
-  | Sqrt -> Float (sqrt e1)
-  | TenX -> Float (ten_x e1)
-  | Exp -> Float (exp e1)
+  | Ln -> int_or_float (ln e1)
+  | Inv -> int_or_float (inverse e1)
+  | Log -> int_or_float (log e1)
+  | Square -> int_or_float (square e1)
+  | Cube -> int_or_float (cube e1)
+  | Sqrt -> int_or_float (sqrt e1)
+  | Cubrt -> int_or_float (cube_root e1)
+  | TenX -> int_or_float (ten_x e1)
+  | Exp -> int_or_float (exp e1)
   | _ -> eval_float_uop_2 uop e1
-
-let eval_int_uop_2 uop e1 =
-  match uop with
-  | Sin -> Float (sin (float_of_int e1))
-  | Cos -> Float (cos (float_of_int e1))
-  | Tan -> Float (tan (float_of_int e1))
-  | ASin -> Float (asin (float_of_int e1))
-  | ACos -> Float (acos (float_of_int e1))
-  | ATan -> Float (atan (float_of_int e1))
-  | Fact -> Int (int_of_float (factorial (float_of_int e1)))
-  | Abs -> Int (abs_i e1)
-  | Round -> Int (int_of_float (round (float_of_int e1)))
-  | Floor -> Int (int_of_float (floor (float_of_int e1)))
-  | _ -> failwith "Not yet supported"
-
-let eval_int_uop uop e1 =
-  match uop with
-  | Ln -> Float (ln (float_of_int e1))
-  | Inv -> Float (inverse (float_of_int e1))
-  | Log -> Float (log (float_of_int e1))
-  | Square -> Int (int_of_float (square (float_of_int e1)))
-  | Cube -> Int (int_of_float (cube (float_of_int e1)))
-  | Sqrt -> Float (sqrt (float_of_int e1))
-  | TenX -> Float (ten_x (float_of_int e1))
-  | Exp -> Float (exp (float_of_int e1))
-  | _ -> eval_int_uop_2 uop e1
 
 let rec eval_expr = function
   | Binop (bop, e1, e2) -> match_binop (bop, e1, e2)
@@ -119,14 +84,15 @@ and eval_binop_single_no_rec (bop, e1, e2) =
   | Float e1', Float e2' -> eval_float_binop bop e1' e2'
   | Float e1', Int e2' -> eval_float_binop bop e1' (float_of_int e2')
   | Int e1', Float e2' -> eval_float_binop bop (float_of_int e1') e2'
-  | Int e1', Int e2' -> eval_int_binop bop e1' e2'
+  | Int e1', Int e2' ->
+      eval_float_binop bop (float_of_int e1') (float_of_int e2')
   | Const c, en -> eval_expr (Binop (bop, eval_expr (Const c), en))
   | en, Const c -> eval_expr (Binop (bop, en, eval_expr (Const c)))
   | _ -> failwith "Not yet supported"
 
 and match_unop (uop, e1) =
   match e1 with
-  | Int e1' -> eval_int_uop uop e1'
+  | Int e1' -> eval_float_uop uop (float_of_int e1')
   | Float e1' -> eval_float_uop uop e1'
   | Const c -> begin
       let op_ans = eval_expr (Const c) in
@@ -152,7 +118,11 @@ let expr_to_string = function
   | Float f -> string_of_float f
   | _ -> failwith "Not yet supported"
 
+let frac_to_string (n, d) = string_of_int n ^ "/" ^ string_of_int d
+
 let eval_query (input : string) : string =
   let lexbuf = Lexing.from_string input in
   let ast = Parser.prog Lexer.read lexbuf in
-  expr_to_string (eval_expr ast)
+  match ast with
+  | Frac e -> frac_to_string (frac (eval_expr e))
+  | _ -> expr_to_string (eval_expr ast)

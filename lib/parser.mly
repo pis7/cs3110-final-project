@@ -10,7 +10,6 @@ open Ast
 %token <string> CONST
 %token TRUE
 %token FALSE
-%token LEQ
 %token TIMES
 %token DIVIDE
 %token PLUS
@@ -49,10 +48,10 @@ open Ast
 %token FLOOR
 %token REMAINDER
 %token POW
+%token FRAC
 
 %nonassoc IN
 %nonassoc ELSE
-%left LEQ
 %left PLUS
 %left MINUS
 %left TIMES
@@ -82,6 +81,7 @@ open Ast
 %left FLOOR
 %left REMAINDER
 %left POW
+%left FRAC
 
 %start <Ast.expr> prog (* start with rule called prog which will return an AST.expr *)
 
@@ -94,19 +94,19 @@ prog:
   ;
 
 expr:
+  | FRAC; e1 = expr { Frac e1 }
   | c = CONST { Const c }
   | i = INT { Int i }
   | f = FLOAT { Float f }
   | x = ID { Var x }
   | TRUE { Bool true }
   | FALSE { Bool false }
-  | e1 = expr; LEQ; e2 = expr { Binop (Leq, e1, e2) }
   | e1 = expr; TIMES; e2 = expr { Binop (Mult, e1, e2) }
   | e1 = expr; DIVIDE; e2 = expr { Binop (Div, e1, e2) }
   | e1 = expr; PLUS; e2 = expr { Binop (Add, e1, e2) }
   | e1 = expr; MINUS; e2 = expr { Binop (Sub, e1, e2) }
-  | e1 = expr; POW; e2 = expr {Binop (Pow, e1, e2) }
-  | e1 = expr; NROOT; e2 = expr {Binop (Nroot, e1, e2) }
+  | POW; e1 = expr; e2 = expr {Binop (Pow, e1, e2) }
+  | NROOT; e1 = expr; e2 = expr {Binop (Nroot, e1, e2) }
   | PERM; e1 = expr; e2 = expr {Binop (Perm, e1, e2) }
   | COMB; e1 = expr; e2 = expr {Binop (Comb, e1, e2) }
   | GCD; e1 = expr; e2 = expr { Binop (Gcd, e1, e2) }

@@ -16,6 +16,7 @@ let rec substitute_x_in_expr x_value expr =
         ( substitute_x_in_expr x_value e1,
           substitute_x_in_expr x_value e2,
           substitute_x_in_expr x_value e3 )
+  | _ -> failwith "Not yet supported"
 
 let rec eval_expr_to_float expr x_value =
   match expr with

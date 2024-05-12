@@ -5,7 +5,6 @@ type bop =
   | Sub
   | Mult
   | Div
-  | Leq
   | Perm
   | Comb
   | Gcd
@@ -35,6 +34,7 @@ type uop =
   | Floor
 
 type expr =
+  | Frac of expr
   | Var of string
   | Const of string
   | Int of int

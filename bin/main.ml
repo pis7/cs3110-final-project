@@ -4,7 +4,9 @@ open Final_project.Menu
 open Final_project.Plot
 
 let rec parse_string () =
-  let _ = print_endline "Enter evaluation: " in
+  let _ =
+    print_endline "\nEnter evaluation (\"quit\" to go back to main menu): "
+  in
   let input = read_line () in
   try
     begin
@@ -20,7 +22,7 @@ let rec parse_string () =
     end
 
 let rec process_input () =
-  print_endline "Enter a command:";
+  print_endline "\nEnter a command:";
   match read_line () with
   | "quit" -> ANSITerminal.(print_string [ red ] "Exiting calculator.\n")
   | "--help" ->

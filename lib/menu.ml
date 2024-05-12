@@ -25,15 +25,6 @@ let print_eval () =
        calculator            ");
   ()
 
-let print_settings () =
-  ANSITerminal.(print_string [ blue ] "|\n");
-  ANSITerminal.(print_string [ blue ] "|");
-  ANSITerminal.(
-    print_string [ green ]
-      " settings: Change certain features of the calculator when solving \
-       problems    ");
-  ()
-
 let print_help () =
   ANSITerminal.(print_string [ blue ] "|\n");
   ANSITerminal.(print_string [ blue ] "|");
@@ -59,9 +50,7 @@ let display_menu () =
   print_command_msg line;
   print_plot ();
   print_eval ();
-  print_settings ();
   print_help ();
   print_quit ();
   ANSITerminal.(print_string [ blue ] "|\n");
-  ANSITerminal.(print_string [ blue ] (line ^ "\n"));
-  print_endline "\nBegin:"
+  ANSITerminal.(print_string [ blue ] (line ^ "\n"))

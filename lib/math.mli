@@ -1,4 +1,4 @@
-val frac : float -> int * int
+val frac : Ast.expr -> int * int
 (** [frac number] converts floating point [number] to relatively prime tuple
     representing fractional form in (numerator, denominator) to be interpreted
     as numerator / denominator for a result within 0.1 of original [number].
@@ -12,8 +12,7 @@ val cube : float -> float
 (** [cube x] is [x]^3*)
 
 val cube_root : float -> float
-(** [cube_root x] is [x]^(1/3)*)
+(** [cube_root n] is [n]^(1/3)*)
 
 val n_root : float -> float -> float
-(** [n_root n x] is [x]^(1/[n]). At this time, negative [x] performance doesn't
-    work. As a result: Precondition: [x] is positive *)
+(** [n_root n x] is [n]^(1/[x]). Precondition: [n] is positive *)
