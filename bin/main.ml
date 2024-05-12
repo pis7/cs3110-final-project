@@ -1,3 +1,5 @@
+(** @author George Maidhof (gpm58) & Parker Schless (pis7) & Edward Liu (ejl248) *)
+
 open Final_project.Help
 open Final_project.Query
 open Final_project.Menu
