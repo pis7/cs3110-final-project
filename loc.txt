@@ -1,1 +1,1 @@
-As of submitting, our loc is 1357 for our calculator project. We have a total of 
+As of submitting, our loc is 1355 for our calculator project. We have a total of 178 passing OUnit tests. Overall, our test suite is about 1/3 of the total LOC of the project. 
